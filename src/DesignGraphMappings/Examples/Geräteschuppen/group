@@ -1,0 +1,115 @@
+graph:{
+ infoname 1: "Attributes"
+ display_edge_labels: yes
+ layoutalgorithm: normal //$ "Orthogonal"
+ port_sharing: no
+ splines: no
+ manhattan_edges: no
+ smanhattan_edges: no
+ orientation: top_to_bottom
+ edges: yes
+ nodes: yes
+ classname 1: "normal"
+ classname 2: "matches"
+ classname 3: "hidden"
+ node:{title:"n59941933" label:"$0:Design" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n59941933" targetname:"n23458411" label:"$5:contains" color:darkyellow}
+ edge:{sourcename:"n59941933" targetname:"n9799115" label:"$6:contains" color:darkyellow}
+ edge:{sourcename:"n59941933" targetname:"n2606490" label:"$4:contains" color:darkyellow}
+ node:{title:"n2606490" label:"$1:Roof" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n2606490" targetname:"n23458411" label:"$9:above" color:darkyellow}
+ edge:{sourcename:"n2606490" targetname:"n9799115" label:"$50:above" color:darkyellow}
+ edge:{sourcename:"n2606490" targetname:"n23458411" label:"$7:connected" color:darkyellow}
+ node:{title:"n23458411" label:"$2:MainPart" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n23458411" targetname:"n9799115" label:"$A:above" color:darkyellow}
+ edge:{sourcename:"n23458411" targetname:"n63208015" label:"$E:contains" color:darkyellow}
+ edge:{sourcename:"n23458411" targetname:"n32001227" label:"$F:contains" color:darkyellow}
+ edge:{sourcename:"n23458411" targetname:"n19575591" label:"$10:contains" color:darkyellow}
+ edge:{sourcename:"n23458411" targetname:"n9799115" label:"$8:connected" color:darkyellow}
+ node:{title:"n9799115" label:"$3:Base" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = True
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ node:{title:"n19575591" label:"$D:RingBar" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = True
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ node:{title:"n63208015" label:"$B:RingBar" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n63208015" targetname:"n32001227" label:"$14:above" color:darkyellow}
+ edge:{sourcename:"n63208015" targetname:"n19575591" label:"$4F:above" color:darkyellow}
+ edge:{sourcename:"n63208015" targetname:"n32001227" label:"$11:connected" color:darkyellow}
+ node:{title:"n32001227" label:"$C:Middle" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n32001227" targetname:"n19575591" label:"$13:above" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n32347029" label:"$21:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n22687807" label:"$22:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n2863675" label:"$23:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n25773083" label:"$24:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n30631159" label:"$25:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n7244975" label:"$26:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n65204782" label:"$27:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n49972132" label:"$28:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n47096010" label:"$29:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n21210914" label:"$2A:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n56680499" label:"$2B:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n40362448" label:"$2C:contains" color:darkyellow}
+ edge:{sourcename:"n32001227" targetname:"n19575591" label:"$12:connected" color:darkyellow}
+ node:{title:"n40362448" label:"$20:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n40362448" targetname:"n25773083" label:"$3E:above" color:darkyellow}
+ edge:{sourcename:"n40362448" targetname:"n47096010" label:"$4E:above" color:darkyellow}
+ edge:{sourcename:"n40362448" targetname:"n7244975" label:"$39:connected" color:darkyellow}
+ node:{title:"n56680499" label:"$1F:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n56680499" targetname:"n30631159" label:"$3B:connected" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n7244975" label:"$40:right" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n30631159" label:"$41:above" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n47096010" label:"$45:right" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n40362448" label:"$49:right" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n65204782" label:"$4D:above" color:darkyellow}
+ edge:{sourcename:"n56680499" targetname:"n7244975" label:"$34:right" color:darkyellow}
+ node:{title:"n21210914" label:"$1E:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n21210914" targetname:"n32347029" label:"$2E:connected" color:darkyellow}
+ node:{title:"n47096010" label:"$1D:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = True
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n47096010" targetname:"n25773083" label:"$37:connected" color:darkyellow}
+ edge:{sourcename:"n47096010" targetname:"n21210914" label:"$2D:connected" color:darkyellow}
+ node:{title:"n49972132" label:"$1C:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n49972132" targetname:"n65204782" label:"$30:connected" color:darkyellow}
+ node:{title:"n65204782" label:"$1B:Post" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n65204782" targetname:"n7244975" label:"$44:right" color:darkyellow}
+ edge:{sourcename:"n65204782" targetname:"n47096010" label:"$47:right" color:darkyellow}
+ edge:{sourcename:"n65204782" targetname:"n40362448" label:"$4B:right" color:darkyellow}
+ edge:{sourcename:"n65204782" targetname:"n56680499" label:"$4C:right" color:darkyellow}
+ edge:{sourcename:"n65204782" targetname:"n30631159" label:"$36:right" color:darkyellow}
+ node:{title:"n32347029" label:"$15:Door" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n32347029" targetname:"n49972132" label:"$2F:connected" color:darkyellow}
+ node:{title:"n7244975" label:"$1A:Wall" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n7244975" targetname:"n56680499" label:"$3A:connected" color:darkyellow}
+ edge:{sourcename:"n7244975" targetname:"n40362448" label:"$3F:right" color:darkyellow}
+ edge:{sourcename:"n7244975" targetname:"n47096010" label:"$43:right" color:darkyellow}
+ edge:{sourcename:"n7244975" targetname:"n40362448" label:"$33:right" color:darkyellow}
+ node:{title:"n30631159" label:"$19:Wall" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n30631159" targetname:"n65204782" label:"$3C:connected" color:darkyellow}
+ edge:{sourcename:"n30631159" targetname:"n65204782" label:"$42:above" color:darkyellow}
+ edge:{sourcename:"n30631159" targetname:"n47096010" label:"$46:right" color:darkyellow}
+ edge:{sourcename:"n30631159" targetname:"n7244975" label:"$48:right" color:darkyellow}
+ edge:{sourcename:"n30631159" targetname:"n40362448" label:"$4A:right" color:darkyellow}
+ edge:{sourcename:"n30631159" targetname:"n56680499" label:"$35:right" color:darkyellow}
+ node:{title:"n25773083" label:"$18:Wall" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ edge:{sourcename:"n25773083" targetname:"n40362448" label:"$32:connected" color:darkyellow}
+ edge:{sourcename:"n25773083" targetname:"n40362448" label:"$38:connected" color:darkyellow}
+ edge:{sourcename:"n25773083" targetname:"n47096010" label:"$3D:above" color:darkyellow}
+ edge:{sourcename:"n25773083" targetname:"n47096010" label:"$31:right" color:darkyellow}
+ node:{title:"n2863675" label:"$17:Wall" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+ node:{title:"n22687807" label:"$16:Wall" color:yellow bordercolor:darkyellow info1: "DesignNode::isAlignmentNode : boolean = False
+  DesignNode::plane : QuasiPlane = <Not initialized>"}
+}
