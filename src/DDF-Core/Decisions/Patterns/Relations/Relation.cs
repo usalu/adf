@@ -2,11 +2,12 @@
 
 namespace DDF.Core.Relations;
 
-public abstract class Relation
+public abstract class Relation: Instance
 {
 
-    public IEnumerable<Thing> Relating { get; }
-    public IEnumerable<Thing> Related { get; }
-    public Directedness Directedness { get; }
+    public Thing Relating { get; }
+    public Thing Related { get; }
+
+   
 
 }

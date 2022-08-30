@@ -17,14 +17,13 @@ namespace DDF.Core.Decisions.Patterns
         public Vector3 SecondaryOrientation { get; }
         public Vector3 TertiaryOrientation { get; }
 
-        public Pattern3D(IEnumerable<Thing> things, IEnumerable<Relation> relations,
-            Dictionary<Thing, Vector3> embedding, Vector3 primaryOrientation, Vector3 secondaryOrientation,
-            Vector3 tertiaryOrientation) : base(things, relations)
+        public Pattern3D(IEnumerable<Thing> things, IEnumerable<Relation>? relations = null, Dictionary < Thing, Vector3>? embedding = null, 
+            Vector3? primaryOrientation = null, Vector3? secondaryOrientation = null, Vector3? tertiaryOrientation = null) : base(things, relations)
         {
-            Embedding = embedding ?? throw new ArgumentNullException(nameof(embedding));
-            PrimaryOrientation = primaryOrientation;
-            SecondaryOrientation = secondaryOrientation;
-            TertiaryOrientation = tertiaryOrientation;
+            Embedding = embedding ?? new Dictionary<Thing, Vector3>();
+            PrimaryOrientation = primaryOrientation ?? Vector3.UnitX;
+            SecondaryOrientation = secondaryOrientation ?? Vector3.UnitY;
+            TertiaryOrientation = tertiaryOrientation ?? Vector3.UnitZ;
         }
     }
 }

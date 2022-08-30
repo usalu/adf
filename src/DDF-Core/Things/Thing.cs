@@ -1,17 +1,29 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
-using DDF.Core.Ports;
-
-namespace DDF.Core.Things;
-
-public class Thing
+namespace DDF.Core.Things
 {
-    public string Type { get; }
-    public IEnumerable<Port>? Ports { get; }
-
-    public Thing(string type, IEnumerable<Port>? ports = null)
+    public class Thing: Instance
     {
-        Type = type ?? throw new ArgumentNullException(nameof(type));
-        Ports = ports ?? new List<Port>();
+        public ThingType ThingType;
+       
+        public Thing(ThingType thingType, string name = "", IEnumerable<string>? concepts = null,
+            Dictionary<string, object>? parameters = null): base(name, concepts, parameters)
+        {
+            ThingType = thingType ?? throw new ArgumentNullException(nameof(thingType));
+        }
+
+        ////Produces an ambiguous constructor
+        //public Thing(ThingType thingType, string name = "", string concept = "",
+        //    Dictionary<string, object>? parameters = null) : base(name, concept, parameters)
+        //{
+        //    ThingType = thingType ?? throw new ArgumentNullException(nameof(thingType));
+        //}
+
+
     }
 }

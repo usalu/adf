@@ -12,6 +12,7 @@ namespace DDF.Core.UnitTests
     [TestClass]
     public class SchlenkerToolShed
     {
+        private Design toolShed;
 
         [TestInitialize]
         public void SchlenkerToolShedInitialize()
@@ -34,22 +35,40 @@ namespace DDF.Core.UnitTests
 
             //var mainPartDecision = new Decision(new Pattern1D(new List<Thing>(){}) )
 
-            var sidePortShortModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
-            var shortPortShortModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), new Dictionary<string, object>() { { "Length", 110f } });
-            var mitterPortShortModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), new Dictionary<string, object>() { { "Length", 77.8f } });
-            var longPortShortModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+          
+            //nbm - Normal base module
+            var sidePortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var shortPortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var mitterPortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), new Dictionary<string, object>() { { "Length", 77.8f } });
+            var longPortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var baseModuleType = new ThingType("BaseModule", new List<Port>() { sidePortBaseModule, shortPortBaseModule, mitterPortBaseModule, longPortBaseModule });
 
-            var shortModule = new Thing("ShortModule", new List<Port>() { sidePortShortModule, shortPortShortModule, mitterPortShortModule, longPortShortModule });
+            //Short base module
+            var sidePortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var shortPortShortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var mitterPortShortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), new Dictionary<string, object>() { { "Length", 77.8f } });
+            var longPortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
+            var shortBaseModuleType = new ThingType("ShortBaseModule", new List<Port>() { sidePortShortBaseModule, shortPortShortBaseModule, mitterPortShortBaseModule, longPortShortBaseModule });
 
-            var sidePortModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
-            var shortPortModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), new Dictionary<string, object>() { { "Length", 110f } });
-            var mitterPortModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), new Dictionary<string, object>() { { "Length", 77.8f } });
-            var longPortModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), new Dictionary<string, object>() { { "Length", 110f } });
-
-            var module = new Thing("Module", new List<Port>() { sidePortModule, shortPortModule, mitterPortModule, longPortModule });
+            //Base module
 
 
-            Design schuppen = new Design("Schlenker tool shed",new List<Decision>()
+            //Basic L-module
+            var basicLModuleType = new ThingType("BasicLModule");
+
+            var basicLModuleShort = new Thing(basicLModuleType, concepts: new List<string>() { "Short" });
+            var basicLModuleLong = new Thing(basicLModuleType, concepts: new List<string>() { "Long" });
+            var basicLModuleShortLong = new Thing(basicLModuleType, concepts: new List<string>() { "Short", "Long" });
+
+            // lmsd: lModuleShortDecision
+            var left_lmsd = new Thing(shortBaseModuleType);
+            var right_lmsd = new Thing(shortBaseModuleType);
+            var lmsd = new Decision(
+                new Pattern1D(basicLModuleShort),
+                new Pattern2D(new List<Thing>(){ left_lmsd, right_lmsd },
+                    new List<Relation>(){new AssemblyRelation(left_lmsd,right_lmsd, mitterPortBaseModule, mitterPortBaseModule) }));
+
+            toolShed = new Design("Schlenker tool shed",new List<Decision>()
             {
                 
             });

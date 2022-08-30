@@ -15,12 +15,15 @@ namespace DDF.Core.Decisions.Patterns
         public Dictionary<Thing, Double> Embedding { get; }
         public Vector3 PrimaryOrientation { get; }
 
-        public Pattern1D(IEnumerable<Thing> things, IEnumerable<Relation> relations,
-            Dictionary<Thing, string[]> concepts, Dictionary<Thing, double> embedding, Vector3 primaryOrientation) :
-            base(things, relations, concepts)
+        public Pattern1D(IEnumerable<Thing> things, IEnumerable<Relation>? relations = null, Dictionary<Thing, double>? embedding = null, Vector3? primaryOrientation = null ) : base(things, relations)
         {
-            Embedding = embedding ?? throw new ArgumentNullException(nameof(embedding));
-            PrimaryOrientation = primaryOrientation;
+            Embedding = embedding ?? new Dictionary<Thing, double>();
+            PrimaryOrientation = primaryOrientation ?? Vector3.UnitX;
+        }
+
+        public Pattern1D(Thing thing):this(new List<Thing>(){thing})
+        {
+           
         }
     }
 }

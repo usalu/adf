@@ -5,13 +5,13 @@ using Microsoft.VisualBasic;
 
 namespace DDF.Core
 {
-    public class Project
+    public class Design
     {
 
         public string Id { get; }
         public IEnumerable<Decision> Decisions { get; }
 
-        public Project(string id, IEnumerable<Decision> decisions)
+        public Design(string id, IEnumerable<Decision> decisions)
         {
             Id = id ?? throw new ArgumentNullException(nameof(id));
             Decisions = decisions ?? throw new ArgumentNullException(nameof(decisions));
