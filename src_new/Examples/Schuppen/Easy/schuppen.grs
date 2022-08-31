@@ -1,0 +1,21 @@
+new graph schuppen "SchuppenGraph"
+
+exec init && DesignR* && MainPartR* && MiddleR* && InfillR* && WallR_front* && WallR_default*
+
+#show graph dot
+
+#exec RightTransitive* && AboveTransitive*
+
+#dump set node DesignNode
+
+dump add node FrameModule infotag size
+dump add node FrameModule infotag overhang
+dump add node FrameModule infotag filling
+#dump add node DesignNode infotag isAlignmentNode
+#dump add node DesignNode group by outgoing only contains
+#dump add edge only right exclude
+
+show graph dot keep
+dump graph schuppen
+
+save graph schuppen.grs

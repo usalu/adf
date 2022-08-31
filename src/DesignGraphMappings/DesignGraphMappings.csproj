@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="lgspBackend">
+      <HintPath>..\GrGen\lgspBackend.dll</HintPath>
+    </Reference>
+    <Reference Include="libGr">
+      <HintPath>..\GrGen\libGr.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

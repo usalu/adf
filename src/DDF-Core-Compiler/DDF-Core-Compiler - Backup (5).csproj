@@ -2,23 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>DDF.Core.UnitTests</RootNamespace>
+    <RootNamespace>DDF.Core.Compiler</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-
-	  <IsPackable>false</IsPackable>
-
-    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
-    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="System.CodeDom" Version="6.0.0" />
+    <PackageReference Include="Xbim.Essentials" Version="5.1.341" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DDF-Core-Compiler\DDF-Core-Compiler.csproj" />
     <ProjectReference Include="..\DDF-Core-ObjectModel\DDF-Core-ObjectModel.csproj" />
   </ItemGroup>
 
@@ -32,7 +27,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="Rem for %25%25I in (&quot;$(SolutionDir)GrGen\*&quot;) do (xcopy %25%25I $(TargetDir) /C /Y)" />
+    <Exec Command="for %25I in (&quot;$(SolutionDir)GrGen\*.dll&quot;) do print %25I" />
   </Target>
 
 </Project>

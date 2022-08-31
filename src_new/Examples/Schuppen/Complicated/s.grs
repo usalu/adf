@@ -1,0 +1,5 @@
+new graph r "SchuppenGraph"
+
+exec init && DesignR*
+
+show graph dot

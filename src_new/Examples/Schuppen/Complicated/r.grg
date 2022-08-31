@@ -1,0 +1,20 @@
+#using "designGraph.gm"
+#using "schuppen.gm"
+
+rule init {
+    modify{
+        d:Design;
+    }
+}
+
+rule DesignR {
+    d:Design;
+    if{d.filled==false;}
+    modify{
+        d -:contains-> fm:FrameModule;
+        eval{
+             fm.size = Size::TALL; 
+             d.filled=true;
+        }
+    }
+}

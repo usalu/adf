@@ -1,0 +1,22 @@
+#using "designGraph.gm"
+#using "schuppen.gm"
+
+rule MiddleR {
+    m:Middle;
+    replace{
+        m -:contains-> wFrontRight:Wall;
+        m -:contains-> wFrontLeft:Wall;
+        m -:contains-> wLeft:Wall;
+        m -:contains-> wRight:Wall;
+        m -:contains-> wBack:Wall;
+
+        m -:contains-> pFrontRight:Post;
+        m -:contains-> pFrontRightLeft:Post;
+        m -:contains-> pFrontLeft:Post;
+        m -:contains-> pFrontLeftRight:Post;
+        m -:contains-> pBackRight:Post;
+        m -:contains-> pBackLeft:Post;
+
+        eval { pFrontLeft.isAlignmentNode=true;}
+    }
+}

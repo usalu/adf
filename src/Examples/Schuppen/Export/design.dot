@@ -1,0 +1,351 @@
+digraph Design {
+ splines=true;
+ rankdir=TB;
+ compound=true;
+ n23897065 [ label="$0:Design" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n23897065 -> n1736333 [ label="$5:contains" color=darkgoldenrod]
+ n23897065 -> n38807476 [ label="$6:contains" color=darkgoldenrod]
+ n23897065 -> n48434858 [ label="$4:contains" color=darkgoldenrod]
+ n48434858 [ label="$1:Roof" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n48434858 -> n1736333 [ label="$9:above" color=darkgoldenrod]
+ n48434858 -> n1736333 [ label="$7:connected" color=darkgoldenrod]
+ n1736333 [ label="$2:MainPart" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n1736333 -> n38807476 [ label="$A:above" color=darkgoldenrod]
+ n1736333 -> n16814072 [ label="$E:contains" color=darkgoldenrod]
+ n1736333 -> n19025433 [ label="$F:contains" color=darkgoldenrod]
+ n1736333 -> n19700781 [ label="$10:contains" color=darkgoldenrod]
+ n1736333 -> n38807476 [ label="$8:connected" color=darkgoldenrod]
+ n38807476 [ label="$3:Base" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = True
+  DesignNode::filled : boolean = False"]
+ n19700781 [ label="$D:RingBar" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = True
+  DesignNode::filled : boolean = False"]
+ n16814072 [ label="$B:RingBar" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n16814072 -> n19025433 [ label="$14:above" color=darkgoldenrod]
+ n16814072 -> n19025433 [ label="$11:connected" color=darkgoldenrod]
+ n19025433 [ label="$C:Middle" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n19025433 -> n19700781 [ label="$13:above" color=darkgoldenrod]
+ n19025433 -> n4823959 [ label="$21:contains" color=darkgoldenrod]
+ n19025433 -> n25826081 [ label="$22:contains" color=darkgoldenrod]
+ n19025433 -> n31887077 [ label="$23:contains" color=darkgoldenrod]
+ n19025433 -> n66063541 [ label="$24:contains" color=darkgoldenrod]
+ n19025433 -> n3344175 [ label="$25:contains" color=darkgoldenrod]
+ n19025433 -> n2668102 [ label="$26:contains" color=darkgoldenrod]
+ n19025433 -> n28536498 [ label="$27:contains" color=darkgoldenrod]
+ n19025433 -> n63004825 [ label="$28:contains" color=darkgoldenrod]
+ n19025433 -> n18089118 [ label="$29:contains" color=darkgoldenrod]
+ n19025433 -> n29694374 [ label="$2A:contains" color=darkgoldenrod]
+ n19025433 -> n66526350 [ label="$2B:contains" color=darkgoldenrod]
+ n19025433 -> n31575569 [ label="$2C:contains" color=darkgoldenrod]
+ n19025433 -> n19700781 [ label="$12:connected" color=darkgoldenrod]
+ n31575569 [ label="$20:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n31575569 -> n2668102 [ label="$39:connected" color=darkgoldenrod]
+ n66526350 [ label="$1F:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n66526350 -> n3344175 [ label="$3B:connected" color=darkgoldenrod]
+ n66526350 -> n2668102 [ label="$40:right" color=darkgoldenrod]
+ n66526350 -> n2668102 [ label="$34:right" color=darkgoldenrod]
+ n29694374 [ label="$1E:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n29694374 -> n4823959 [ label="$2E:connected" color=darkgoldenrod]
+ n18089118 [ label="$1D:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = True
+  DesignNode::filled : boolean = False"]
+ n18089118 -> n66063541 [ label="$37:connected" color=darkgoldenrod]
+ n18089118 -> n66063541 [ label="$3D:infront" color=darkgoldenrod]
+ n18089118 -> n29694374 [ label="$2D:connected" color=darkgoldenrod]
+ n63004825 [ label="$1C:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n63004825 -> n28536498 [ label="$30:connected" color=darkgoldenrod]
+ n28536498 [ label="$1B:Post" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n28536498 -> n3344175 [ label="$42:infront" color=darkgoldenrod]
+ n28536498 -> n2668102 [ label="$44:right" color=darkgoldenrod]
+ n28536498 -> n3344175 [ label="$36:right" color=darkgoldenrod]
+ n2668102 [ label="$1A:Infill" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n2668102 -> n66526350 [ label="$3A:connected" color=darkgoldenrod]
+ n2668102 -> n31575569 [ label="$3F:right" color=darkgoldenrod]
+ n2668102 -> n18089118 [ label="$43:right" color=darkgoldenrod]
+ n2668102 -> n58540641 [ label="$47:contains" color=darkgoldenrod]
+ n2668102 -> n14209362 [ label="$48:contains" color=darkgoldenrod]
+ n2668102 -> n31575569 [ label="$33:right" color=darkgoldenrod]
+ n3344175 [ label="$19:Infill" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n3344175 -> n28536498 [ label="$3C:connected" color=darkgoldenrod]
+ n3344175 -> n66526350 [ label="$41:infront" color=darkgoldenrod]
+ n3344175 -> n61917315 [ label="$4D:contains" color=darkgoldenrod]
+ n3344175 -> n18859832 [ label="$4E:contains" color=darkgoldenrod]
+ n3344175 -> n66526350 [ label="$35:right" color=darkgoldenrod]
+ n66063541 [ label="$18:Infill" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n66063541 -> n31575569 [ label="$32:connected" color=darkgoldenrod]
+ n66063541 -> n31575569 [ label="$38:connected" color=darkgoldenrod]
+ n66063541 -> n31575569 [ label="$3E:infront" color=darkgoldenrod]
+ n66063541 -> n62641401 [ label="$53:contains" color=darkgoldenrod]
+ n66063541 -> n63029134 [ label="$54:contains" color=darkgoldenrod]
+ n66063541 -> n18089118 [ label="$31:right" color=darkgoldenrod]
+ n31887077 [ label="$17:Infill" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n31887077 -> n1902820 [ label="$5A:contains" color=darkgoldenrod]
+ n31887077 -> n59439040 [ label="$59:contains" color=darkgoldenrod]
+ n25826081 [ label="$16:Infill" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n25826081 -> n57630717 [ label="$60:contains" color=darkgoldenrod]
+ n25826081 -> n43850433 [ label="$5F:contains" color=darkgoldenrod]
+ n4823959 [ label="$15:Door" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n4823959 -> n63004825 [ label="$2F:connected" color=darkgoldenrod]
+ n14209362 [ label="$46:Wall" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n14209362 -> n58540641 [ label="$4A:infront" color=darkgoldenrod]
+ n14209362 -> n15048775 [ label="$83:contains" color=darkgoldenrod]
+ n14209362 -> n45560071 [ label="$84:contains" color=darkgoldenrod]
+ n14209362 -> n27700944 [ label="$85:contains" color=darkgoldenrod]
+ n14209362 -> n12035995 [ label="$86:contains" color=darkgoldenrod]
+ n14209362 -> n58540641 [ label="$49:connected" color=darkgoldenrod]
+ n57630717 [ label="$5E:Wall" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n57630717 -> n43850433 [ label="$62:infront" color=darkgoldenrod]
+ n57630717 -> n63310933 [ label="$67:contains" color=darkgoldenrod]
+ n57630717 -> n36761674 [ label="$68:contains" color=darkgoldenrod]
+ n57630717 -> n27869635 [ label="$69:contains" color=darkgoldenrod]
+ n57630717 -> n22326157 [ label="$6A:contains" color=darkgoldenrod]
+ n57630717 -> n43850433 [ label="$61:connected" color=darkgoldenrod]
+ n1902820 [ label="$58:Wall" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n1902820 -> n59439040 [ label="$5C:infront" color=darkgoldenrod]
+ n1902820 -> n16314051 [ label="$75:contains" color=darkgoldenrod]
+ n1902820 -> n55633041 [ label="$76:contains" color=darkgoldenrod]
+ n1902820 -> n38172343 [ label="$77:contains" color=darkgoldenrod]
+ n1902820 -> n46811602 [ label="$78:contains" color=darkgoldenrod]
+ n1902820 -> n59439040 [ label="$5B:connected" color=darkgoldenrod]
+ n63029134 [ label="$52:Wall" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n63029134 -> n62641401 [ label="$56:infront" color=darkgoldenrod]
+ n63029134 -> n46095347 [ label="$95:contains" color=darkgoldenrod]
+ n63029134 -> n60352758 [ label="$96:contains" color=darkgoldenrod]
+ n63029134 -> n57639598 [ label="$97:contains" color=darkgoldenrod]
+ n63029134 -> n26354563 [ label="$98:contains" color=darkgoldenrod]
+ n63029134 -> n64124492 [ label="$99:contains" color=darkgoldenrod]
+ n63029134 -> n19279957 [ label="$9A:contains" color=darkgoldenrod]
+ n63029134 -> n35226701 [ label="$9B:contains" color=darkgoldenrod]
+ n63029134 -> n1345137 [ label="$9C:contains" color=darkgoldenrod]
+ n63029134 -> n62641401 [ label="$55:connected" color=darkgoldenrod]
+ n18859832 [ label="$4C:Wall" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = True"]
+ n18859832 -> n61917315 [ label="$50:infront" color=darkgoldenrod]
+ n18859832 -> n56192078 [ label="$C1:contains" color=darkgoldenrod]
+ n18859832 -> n5164743 [ label="$C2:contains" color=darkgoldenrod]
+ n18859832 -> n46613902 [ label="$C3:contains" color=darkgoldenrod]
+ n18859832 -> n24875751 [ label="$C4:contains" color=darkgoldenrod]
+ n18859832 -> n41025813 [ label="$C5:contains" color=darkgoldenrod]
+ n18859832 -> n19546655 [ label="$C6:contains" color=darkgoldenrod]
+ n18859832 -> n51495298 [ label="$C7:contains" color=darkgoldenrod]
+ n18859832 -> n54205462 [ label="$C8:contains" color=darkgoldenrod]
+ n18859832 -> n61917315 [ label="$4F:connected" color=darkgoldenrod]
+ n43850433 [ label="$5D:WallFrame" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n59439040 [ label="$57:WallFrame" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n62641401 [ label="$51:WallFrame" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n61917315 [ label="$4B:WallFrame" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n58540641 [ label="$45:WallFrame" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n54205462 [ label="$C0:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n54205462 -> n19546655 [ label="$D8:above" color=darkgoldenrod]
+ n54205462 -> n19546655 [ label="$D4:connected" color=darkgoldenrod]
+ n51495298 [ label="$BF:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n51495298 -> n41025813 [ label="$D6:above" color=darkgoldenrod]
+ n51495298 -> n54205462 [ label="$D7:right" color=darkgoldenrod]
+ n51495298 -> n54205462 [ label="$D3:connected" color=darkgoldenrod]
+ n19546655 [ label="$BE:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n19546655 -> n5164743 [ label="$DA:right" color=darkgoldenrod]
+ n19546655 -> n5164743 [ label="$DB:above" color=darkgoldenrod]
+ n19546655 -> n41025813 [ label="$D1:connected" color=darkgoldenrod]
+ n41025813 [ label="$BD:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n41025813 -> n19546655 [ label="$D5:right" color=darkgoldenrod]
+ n41025813 -> n56192078 [ label="$DE:above" color=darkgoldenrod]
+ n41025813 -> n51495298 [ label="$D2:connected" color=darkgoldenrod]
+ n1345137 [ label="$94:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n1345137 -> n19279957 [ label="$AC:above" color=darkgoldenrod]
+ n1345137 -> n19279957 [ label="$A8:connected" color=darkgoldenrod]
+ n35226701 [ label="$93:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n35226701 -> n64124492 [ label="$AA:above" color=darkgoldenrod]
+ n35226701 -> n1345137 [ label="$AB:right" color=darkgoldenrod]
+ n35226701 -> n1345137 [ label="$A7:connected" color=darkgoldenrod]
+ n19279957 [ label="$92:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n19279957 -> n60352758 [ label="$AE:right" color=darkgoldenrod]
+ n19279957 -> n60352758 [ label="$AF:above" color=darkgoldenrod]
+ n19279957 -> n64124492 [ label="$A5:connected" color=darkgoldenrod]
+ n64124492 [ label="$91:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = TALL
+  FrameModule::overhang : Overhang = BOTH
+  FrameModule::filling : Filling = BOX"]
+ n64124492 -> n19279957 [ label="$A9:right" color=darkgoldenrod]
+ n64124492 -> n46095347 [ label="$B2:above" color=darkgoldenrod]
+ n64124492 -> n35226701 [ label="$A6:connected" color=darkgoldenrod]
+ n12035995 [ label="$82:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n12035995 -> n15048775 [ label="$8A:above" color=darkgoldenrod]
+ n12035995 -> n27700944 [ label="$88:connected" color=darkgoldenrod]
+ n27700944 [ label="$81:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n27700944 -> n12035995 [ label="$8B:above" color=darkgoldenrod]
+ n27700944 -> n45560071 [ label="$89:connected" color=darkgoldenrod]
+ n45560071 [ label="$80:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n45560071 -> n27700944 [ label="$8C:above" color=darkgoldenrod]
+ n15048775 [ label="$7F:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n15048775 -> n12035995 [ label="$87:connected" color=darkgoldenrod]
+ n46811602 [ label="$74:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n46811602 -> n16314051 [ label="$7C:above" color=darkgoldenrod]
+ n46811602 -> n38172343 [ label="$7A:connected" color=darkgoldenrod]
+ n38172343 [ label="$73:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n38172343 -> n46811602 [ label="$7D:above" color=darkgoldenrod]
+ n38172343 -> n55633041 [ label="$7B:connected" color=darkgoldenrod]
+ n55633041 [ label="$72:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n55633041 -> n38172343 [ label="$7E:above" color=darkgoldenrod]
+ n16314051 [ label="$71:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n16314051 -> n46811602 [ label="$79:connected" color=darkgoldenrod]
+ n22326157 [ label="$66:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n22326157 -> n63310933 [ label="$6E:above" color=darkgoldenrod]
+ n22326157 -> n27869635 [ label="$6C:connected" color=darkgoldenrod]
+ n27869635 [ label="$65:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = WINDOW"]
+ n27869635 -> n22326157 [ label="$6F:above" color=darkgoldenrod]
+ n27869635 -> n36761674 [ label="$6D:connected" color=darkgoldenrod]
+ n36761674 [ label="$64:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n36761674 -> n27869635 [ label="$70:above" color=darkgoldenrod]
+ n63310933 [ label="$63:FrameModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False
+  FrameModule::size : Size = SMALL
+  FrameModule::overhang : Overhang = OUTSIDE
+  FrameModule::filling : Filling = BOX"]
+ n63310933 -> n22326157 [ label="$6B:connected" color=darkgoldenrod]
+ n24875751 [ label="$BC:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n24875751 -> n5164743 [ label="$D0:above" color=darkgoldenrod]
+ n24875751 -> n51495298 [ label="$DF:connected" color=darkgoldenrod]
+ n24875751 -> n51495298 [ label="$E0:right" color=darkgoldenrod]
+ n24875751 -> n51495298 [ label="$E1:above" color=darkgoldenrod]
+ n24875751 -> n5164743 [ label="$CC:connected" color=darkgoldenrod]
+ n46613902 [ label="$BB:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n46613902 -> n56192078 [ label="$CE:above" color=darkgoldenrod]
+ n46613902 -> n24875751 [ label="$CF:right" color=darkgoldenrod]
+ n46613902 -> n51495298 [ label="$E2:connected" color=darkgoldenrod]
+ n46613902 -> n51495298 [ label="$E3:right" color=darkgoldenrod]
+ n46613902 -> n51495298 [ label="$E4:above" color=darkgoldenrod]
+ n46613902 -> n24875751 [ label="$CB:connected" color=darkgoldenrod]
+ n5164743 [ label="$BA:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n5164743 -> n19546655 [ label="$D9:connected" color=darkgoldenrod]
+ n5164743 -> n56192078 [ label="$C9:connected" color=darkgoldenrod]
+ n56192078 [ label="$B9:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n56192078 -> n5164743 [ label="$CD:right" color=darkgoldenrod]
+ n56192078 -> n41025813 [ label="$DC:connected" color=darkgoldenrod]
+ n56192078 -> n41025813 [ label="$DD:right" color=darkgoldenrod]
+ n56192078 -> n46613902 [ label="$CA:connected" color=darkgoldenrod]
+ n26354563 [ label="$90:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n26354563 -> n60352758 [ label="$A4:above" color=darkgoldenrod]
+ n26354563 -> n35226701 [ label="$B3:connected" color=darkgoldenrod]
+ n26354563 -> n35226701 [ label="$B4:right" color=darkgoldenrod]
+ n26354563 -> n35226701 [ label="$B5:above" color=darkgoldenrod]
+ n26354563 -> n60352758 [ label="$A0:connected" color=darkgoldenrod]
+ n57639598 [ label="$8F:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n57639598 -> n46095347 [ label="$A2:above" color=darkgoldenrod]
+ n57639598 -> n26354563 [ label="$A3:right" color=darkgoldenrod]
+ n57639598 -> n35226701 [ label="$B6:connected" color=darkgoldenrod]
+ n57639598 -> n35226701 [ label="$B7:right" color=darkgoldenrod]
+ n57639598 -> n35226701 [ label="$B8:above" color=darkgoldenrod]
+ n57639598 -> n26354563 [ label="$9F:connected" color=darkgoldenrod]
+ n60352758 [ label="$8E:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n60352758 -> n19279957 [ label="$AD:connected" color=darkgoldenrod]
+ n60352758 -> n46095347 [ label="$9D:connected" color=darkgoldenrod]
+ n46095347 [ label="$8D:LModule" fillcolor=yellow style=filled color=darkgoldenrod tooltip="DesignNode::isAlignmentNode : boolean = False
+  DesignNode::filled : boolean = False"]
+ n46095347 -> n60352758 [ label="$A1:right" color=darkgoldenrod]
+ n46095347 -> n64124492 [ label="$B0:connected" color=darkgoldenrod]
+ n46095347 -> n64124492 [ label="$B1:right" color=darkgoldenrod]
+ n46095347 -> n57639598 [ label="$9E:connected" color=darkgoldenrod]
+}

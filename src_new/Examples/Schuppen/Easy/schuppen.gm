@@ -1,0 +1,27 @@
+enum Size {TALL,SMALL}
+enum Overhang {BOTH,INSIDE,OUTSIDE}
+enum Filling {BOX,WINDOW}
+
+node class Design extends DesignNode;
+
+node class Roof extends DesignNode;
+node class MainPart extends DesignNode;
+node class Base extends DesignNode;
+
+node class RingBar extends DesignNode;
+node class Middle extends DesignNode;
+
+node class Post extends DesignNode;
+node class Infill extends DesignNode;
+node class Door extends DesignNode;
+
+node class Wall extends DesignNode;
+node class WallFrame extends DesignNode;
+
+node class Module extends DesignNode;
+node class FrameModule extends Module{
+    size: Size;
+    overhang: Overhang;
+    filling: Filling;
+}
+node class LModule extends Module;
