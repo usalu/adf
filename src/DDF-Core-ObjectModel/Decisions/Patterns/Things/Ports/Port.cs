@@ -1,4 +1,6 @@
-﻿namespace DDF.Core.Ports;
+﻿using System.Collections.Generic;
+
+namespace DDF.Core.Ports;
 
 public abstract class Port: Instance
 {

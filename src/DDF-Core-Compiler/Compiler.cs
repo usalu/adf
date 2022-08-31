@@ -1,9 +1,13 @@
-﻿using System.CodeDom;
+﻿using System;
+using System.CodeDom;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.IO.MemoryMappedFiles;
+using System.Linq;
 using System.Reflection;
 using de.unika.ipd.grGen.libGr;
 using de.unika.ipd.grGen.lgsp;
@@ -47,6 +51,7 @@ namespace DDF.Core.Compiler
             grGen.StartInfo.Arguments+=("-noevents ");
             //grGen.StartInfo.ArgumentList.Add("-noperfinfo");
             grGen.StartInfo.Arguments+=(fileName + ".grg ");
+            grGen.StartInfo.CreateNoWindow = true;
 
             try
             {
@@ -56,26 +61,24 @@ namespace DDF.Core.Compiler
                 string[] cSharpFiles = Directory.GetFiles(Path.Combine(tempDirectory, "tmpgrgen0"), @"*Actions.cs")
                     .Union(Directory.GetFiles(Path.Combine(tempDirectory, "tmpgrgen0"), @"*Model.cs")).ToArray();
 
-                var result = GenerateCode(sourceCode)
-
                 var results = new CSharpCodeProvider().CompileAssemblyFromFile(new CompilerParameters()
                 {
                     GenerateInMemory = true,
-                    ReferencedAssemblies = { "libGr", "lgspBackend" }
+                    ReferencedAssemblies = {"System.dll", "libGr.dll", "lgspBackend.dll" }
                 }, cSharpFiles);
 
                 Assembly modelActionsAssembly = results.CompiledAssembly;
 
 
-                //Find Type manually as GetType doesn't work somehow
-                Type type = modelActionsAssembly.GetType(fileName+"Graph");
+                //GetType doesn't work somehow
+                //Type type = modelActionsAssembly.GetType(fileName+"Graph");
                 //Type graphType = modelAssembly.GetType("de.unika.ipd.grGen.Model_"+ fileName + "Graph");
                 Type graphType = null;
                 Type actionsType = null;
                 bool found = false;
                 foreach (Type exportedType in modelActionsAssembly.ExportedTypes)
                 {
-                    if (exportedType.Name == fileName + "Graph")
+                    if (exportedType.Name == fileName + "NamedGraph")
                     {
                         graphType = exportedType;
                         if (found) break;
@@ -88,10 +91,16 @@ namespace DDF.Core.Compiler
                         found = true;
                     }
                 }
-                LGSPGraph graph = (LGSPGraph)Activator.CreateInstance(graphType, new object[] { new LGSPGlobalVariables() });
-                LGSPActions actions = (LGSPActions)Activator.CreateInstance(actionsType, new object[] { graph });
+                LGSPNamedGraph graph = (LGSPNamedGraph)Activator.CreateInstance(graphType, new LGSPGlobalVariables());
+                LGSPActions actions = (LGSPActions)Activator.CreateInstance(actionsType, graph);
                 LGSPGraphProcessingEnvironment procEnv = new LGSPGraphProcessingEnvironment(graph, actions);
 
+                procEnv.ApplyGraphRewriteSequence("init && DesignR* && MainPartR* && MiddleR* && InfillR* && WallR_front* && WallR_default*");
+
+                using (var dumper = new DOTDumper(@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\Examples\Schuppen\Export\design.dot", "Design", VCGFlags.OrientTopToBottom | VCGFlags.Splines))
+                    GraphDumper.Dump(graph, dumper);
+
+                Porter.Export(graph,new List<string>() {@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\Examples\Schuppen\Export\design.grs"});
                 ////var backend = new LGSPBackend();
                 ////Porter.Import(backend, new List<string>(){tempShellFilePath},)
 
