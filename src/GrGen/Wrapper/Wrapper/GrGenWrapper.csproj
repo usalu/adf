@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8D6E1EA-AFF2-4080-B78D-A9AF52D270C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GrGenWrapper</RootNamespace>
+    <AssemblyName>GrGenWrapper</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="lgspBackend">
+      <HintPath>..\..\bin\lgspBackend.dll</HintPath>
+    </Reference>
+    <Reference Include="libGr">
+      <HintPath>..\..\bin\libGr.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ObjectModel\IStatement.cs" />
+    <Compile Include="ObjectModel\RuleSets\Actions\Test.cs" />
+    <Compile Include="ObjectModel\RuleSets\FileHeader.cs" />
+    <Compile Include="ObjectModel\RuleSets\GlobalVariable.cs" />
+    <Compile Include="ObjectModel\RuleSets\Graphlet.cs" />
+    <Compile Include="ObjectModel\RuleSets\Actions\Rule.cs" />
+    <Compile Include="ObjectModel\Snippet.cs" />
+    <Compile Include="Wrappers\Graphs\Edge.cs" />
+    <Compile Include="Wrappers\Graphs\Graph.cs" />
+    <Compile Include="GrGenWrapper.cs" />
+    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\ClassDeclaration.cs" />
+    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\EdgeClass.cs" />
+    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\NodeClass.cs" />
+    <Compile Include="ObjectModel\GraphModels\EnumDeclaration.cs" />
+    <Compile Include="ObjectModel\CompileSet.cs" />
+    <Compile Include="ObjectModel\File.cs" />
+    <Compile Include="ObjectModel\GraphModels\GraphModel.cs" />
+    <Compile Include="ObjectModel\RuleSets\RuleSet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wrappers\Graphs\Node.cs" />
+    <Compile Include="Wrappers\RewriteSequences\LazyGreedyAndListRewriteSequence.cs" />
+    <Compile Include="Wrappers\RewriteSequences\RewriteSequence.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

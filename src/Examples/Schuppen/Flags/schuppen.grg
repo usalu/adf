@@ -1,0 +1,40 @@
+#using "designGraph.gm"
+#using "schuppen.gm"
+
+
+//Doens't work yet!
+
+rule initDesign : (int){
+    modify{
+        d:Design;
+        eval{
+            (yield flag:int) = valloc();
+        }
+        return(flag);
+    }
+}
+
+rule DesignDefault (var flag:int) {
+    d:Design;
+    if{!d.visited[flag];}
+    modify{
+        d -:contains-> r:Roof;
+        d -:contains-> m:MainPart;
+        d -:contains-> b:Base;
+
+        r -:connected- m -:connected- b;
+
+        r -:above-> m -:above-> b;
+
+        eval {
+            d.visited[flag] = true;
+        }
+    }
+}
+
+rule FreeVisited (var flag:int) {
+    d:DesignNode;
+    modify{
+        vfree(flag)
+    }
+}
