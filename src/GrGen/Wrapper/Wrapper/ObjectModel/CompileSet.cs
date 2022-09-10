@@ -6,7 +6,7 @@ using GrGenWrapper.ObjectModel.RuleSets;
 
 namespace GrGenWrapper.ObjectModel
 {
-    public class CompileSet:IFile
+    public class CompileSet
     {
         public List<GraphModel> Models { get;}
         public RuleSet RuleSet { get;}

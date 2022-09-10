@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDF.Core.ObjectModel
+namespace DDF.Core.ObjectModel.Decisions.Patterns.Spaces
 {
-    public class Design
+
+    public class Surface: Space
     {
     }
 }

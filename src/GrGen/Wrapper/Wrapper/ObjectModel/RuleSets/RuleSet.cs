@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GrGenWrapper.ObjectModel.RuleSets.Actions;
 
 namespace GrGenWrapper.ObjectModel.RuleSets
 {
-    public class RuleSet:File
+    public class RuleSet:GrGenFile
     {
         
-        public string Name { get; set; }
-        public string FullName => Name + ".grg";
+        public override string FullName => Name + ".grg";
         public FileHeader FileHeader { get; set; }
 
         #region Actions
@@ -15,9 +15,14 @@ namespace GrGenWrapper.ObjectModel.RuleSets
         public List<Test> Tests { get; set; }
         #endregion
 
-        public RuleSet(string name, List<Snippet> snippets = null) : base(name, snippets)
+        public RuleSet(string name, FileHeader fileHeader = null,
+            List<Rule> rules = null, List<Test> tests = null, List<Snippet> snippets = null) : base(name, snippets)
         {
+            FileHeader = fileHeader ?? new FileHeader();
+            Rules = rules ?? new List<Rule>();
+            Tests = tests ?? new List<Test>();
         }
+
 
         internal override void Prepare()
         {

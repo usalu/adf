@@ -57,7 +57,7 @@
 //                        try
 //                        {
 //                            Console.WriteLine("Standard Wall successfully created....");
-//                            //write the Ifc File
+//                            //write the Ifc GrGenFile
 //                            model.SaveAs("HelloWallIfc4.ifc", StorageType.Ifc);
 //                            Console.WriteLine("HelloWallIfc4.ifc has been successfully written");
 //                        }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDF.Core.ObjectModel
+namespace RhinoGeometryBackend
 {
-    public class Design
+    public class Class1
     {
     }
 }

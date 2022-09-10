@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDF.Core.ObjectModel
+namespace XBimSerializationBackend
 {
-    public class Design
+    public class Class1
     {
     }
 }

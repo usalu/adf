@@ -19,14 +19,6 @@ public class CompilerTest
     [TestMethod]
     public void CompilePipeline()
     {
-        string folder = @"C:\Git\Studium\PhD\DesignDescriptionFramework\src\Examples\Schuppen\Easy";
-            //string folder = @"C:\Git\Studium\PhD\DesignDescriptionFramework\src\DDF-Core-Compiler\";
-            = Directory.GetFiles(folder, @"*.gm");
-
-        string fileName = "schuppen";
-        ruleFilePath = Path.Combine(folder, fileName + ".grg");
-        string shellFilePath = Path.Combine(folder, fileName + ".grs");
-
-        var result = _compiler.Compile(new Design("TestDesign", new List<Decision>()));
+     
     }
 }

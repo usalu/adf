@@ -1,12 +1,12 @@
+abstract node class Design {
+    isAlignmentNode: boolean;
+    filled: boolean;
+}
+
 class QuasiPlane {
     xyRotation:double;
     xzRotation:double;
     yzRotation:double;
-}
-
-abstract node class DesignNode {
-    isAlignmentNode: boolean;
-    filled: boolean;
 }
 
 edge class contains;

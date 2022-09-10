@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DDF.Core.ObjectModel;
 
-namespace DDF.Core.Compiler
+namespace DDF.Core.ObjectModel.Decisions.Patterns.Spaces
 {
-    public interface IBackend
+    
+
+    public class Curve: Space
     {
-        string GetIfc(Design design);
     }
 }

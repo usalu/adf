@@ -13,7 +13,7 @@ namespace DDF.Core.UnitTests
     [TestClass]
     public class SchlenkerToolShed
     {
-        public Design toolShed;
+        public DesignPlan toolShed;
 
         [TestInitialize]
         public void SchlenkerToolShedInitialize()
@@ -74,7 +74,7 @@ namespace DDF.Core.UnitTests
                     new [] { new Relation(left_lmld, left_lmld) },
                     new Dictionary<Thing, Vector2>() { { left_lmld, new Vector2(0, 1) }, { right_lmld, new Vector2(1, 0) } }));
 
-            toolShed = new Design("Schlenker tool shed",new []
+            toolShed = new DesignPlan("Schlenker tool shed",new []
             {
                 lmsd,lmld
             });

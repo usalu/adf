@@ -14,7 +14,7 @@ namespace DDF.Core.ObjectModel.Decisions.Patterns.Things
             Dictionary<string, object>? parameters = null): base(name, concepts, parameters)
         {
             ThingType = thingType ?? throw new ArgumentNullException(nameof(thingType));
-            Orientation = orientation ?? Plane.CreateFromVertices(new Vector3(0,0,0), new Vector3(1,0,0), new Vector3(0,1,0));
+            Orientation = orientation ?? new Plane(0,0,1,0);
         }
 
         ////Produces an ambiguous constructor

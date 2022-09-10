@@ -1,6 +1,6 @@
 ﻿namespace GrGenWrapper.ObjectModel.GraphModels.ClassDeclarations
 {
-    internal class ClassDeclaration
+    public class ClassDeclaration
     {
     }
 }

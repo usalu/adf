@@ -28,7 +28,7 @@ namespace GrGenWrapper
             sequence.ApplyOn(_graphProcessingEnvironment);
         }
 
-        static IGraphProcessingEnvironment CreateGraphProcessingEnvironment(CompileSet compileSet)
+        public static IGraphProcessingEnvironment CreateGraphProcessingEnvironment(CompileSet compileSet)
         {
             string tempDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName().Split('.').First());
             
@@ -113,13 +113,13 @@ namespace GrGenWrapper
         //    string tempShellFilePath = Path.Combine(tempDirectory, fileName + ".grs");
 
         //    foreach (var modelFilePath in modelFilePaths)
-        //        File.Copy(modelFilePath, Path.Combine(tempDirectory, Path.GetFileName(modelFilePath)), true);
-        //    File.Copy(ruleFilePath, tempRuleFilePath, true);
-        //    File.Copy(shellFilePath, tempShellFilePath, true);
+        //        GrGenFile.Copy(modelFilePath, Path.Combine(tempDirectory, Path.GetFileName(modelFilePath)), true);
+        //    GrGenFile.Copy(ruleFilePath, tempRuleFilePath, true);
+        //    GrGenFile.Copy(shellFilePath, tempShellFilePath, true);
 
-        //    File.Copy(@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\GrGen\lgspBackend.dll", 
+        //    GrGenFile.Copy(@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\GrGen\lgspBackend.dll", 
         //        Path.Combine(tempDirectory, "lgspBackend.dll"), true);
-        //    File.Copy(@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\GrGen\lgspBackend.dll",
+        //    GrGenFile.Copy(@"C:\Git\Studium\PhD\DesignDescriptionFramework\src\GrGen\lgspBackend.dll",
         //        Path.Combine(tempDirectory, "lgspBackend.dll"), true);
 
         //    Process grGen = new Process();
@@ -132,9 +132,9 @@ namespace GrGenWrapper
         //        grGen.Start();
         //        grGen.WaitForExit();
 
-        //        var modelAssemblyBytes = File.ReadAllBytes(Path.Combine(tempDirectory,"lgsp-" + fileName + "Model.dll"));
+        //        var modelAssemblyBytes = GrGenFile.ReadAllBytes(Path.Combine(tempDirectory,"lgsp-" + fileName + "Model.dll"));
         //        var modelAssembly = Assembly.Load(modelAssemblyBytes);
-        //        var actionsAssemblyBytes = File.ReadAllBytes(Path.Combine(tempDirectory, "lgsp-" + fileName + "Actions.dll"));
+        //        var actionsAssemblyBytes = GrGenFile.ReadAllBytes(Path.Combine(tempDirectory, "lgsp-" + fileName + "Actions.dll"));
         //        var actionsAssembly = Assembly.Load(actionsAssemblyBytes);
         //        var names = actionsAssembly.GetReferencedAssemblies();
 
@@ -204,9 +204,9 @@ namespace GrGenWrapper
         //    string tempShellFilePath = Path.Combine(tempDirectory, fileName + ".grs");
 
         //    foreach (var modelFilePath in modelFilePaths)
-        //        File.Copy(modelFilePath, Path.Combine(tempDirectory, Path.GetFileName(modelFilePath)), true);
-        //    File.Copy(ruleFilePath, tempRuleFilePath, true);
-        //    File.Copy(shellFilePath, tempShellFilePath, true);
+        //        GrGenFile.Copy(modelFilePath, Path.Combine(tempDirectory, Path.GetFileName(modelFilePath)), true);
+        //    GrGenFile.Copy(ruleFilePath, tempRuleFilePath, true);
+        //    GrGenFile.Copy(shellFilePath, tempShellFilePath, true);
 
         //    try
         //    {

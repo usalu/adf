@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using de.unika.ipd.grGen.lgsp;
+using de.unika.ipd.grGen.libGr;
 
 namespace GrGenWrapper.Wrappers.RewriteSequences
 {
@@ -17,7 +18,7 @@ namespace GrGenWrapper.Wrappers.RewriteSequences
             RuleNames = ruleNames ?? throw new ArgumentNullException(nameof(ruleNames));
         }
 
-        internal override void ApplyOn(LGSPGraphProcessingEnvironment graphProcessingEnvironment)
+        public override void ApplyOn(IGraphProcessingEnvironment graphProcessingEnvironment)
         {
             graphProcessingEnvironment.ApplyGraphRewriteSequence(string.Join("&&", RuleNames.Select(x=>x+"*")));
         }

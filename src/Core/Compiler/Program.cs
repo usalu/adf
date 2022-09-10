@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DDF_Core_Compiler
+﻿namespace DDF.Core.Compiler
 {
     internal class Program
     {

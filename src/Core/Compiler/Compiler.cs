@@ -9,6 +9,7 @@ using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Reflection;
+using DDF.Core.Compiler.Backends;
 using DDF.Core.ObjectModel;
 using Microsoft.CSharp;
 
@@ -17,16 +18,12 @@ namespace DDF.Core.Compiler
 {
     public class Compiler
     {
-        public IBackend Backend;
+        IAssemblerBackend AssemblerBackend { get; }
+        ISerializationBackend SerializationBackend { get; }
 
-        public Compiler(IBackend backend)
+        public string Compile(DesignPlan design)
         {
-            Backend = backend;
-        }
-
-        public string Compile(Design design)
-        {
-            return Backend.GetIfc(design);
+            throw new NotImplementedException();
         }
     }
 }

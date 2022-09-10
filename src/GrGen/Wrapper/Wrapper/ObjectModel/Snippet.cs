@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace GrGenWrapper.ObjectModel
 {
@@ -8,6 +9,12 @@ namespace GrGenWrapper.ObjectModel
     public class Snippet: IStatement
     {
         public string Text { get; set; }
+
+        public Snippet(string text)
+        {
+            Text = text ?? throw new ArgumentNullException(nameof(text));
+        }
+
         public void Write(StringBuilder builder)
         {
             builder.AppendLine(Text);

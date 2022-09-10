@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrGenWrapper.ObjectModel.GraphModels
 {
-    internal class EnumDeclaration
+    public class EnumDeclaration
     {
     }
 }

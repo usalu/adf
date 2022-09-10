@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8D6E1EA-AFF2-4080-B78D-A9AF52D270C9}</ProjectGuid>
+    <ProjectGuid>{029F77F2-A5F1-4AE4-8213-C823B28CDB78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrGenWrapper</RootNamespace>
-    <AssemblyName>GrGenWrapper</AssemblyName>
+    <RootNamespace>DDF.Core.Compiler.GGXBBackend</RootNamespace>
+    <AssemblyName>DDF-Core-Compiler-GrGenBackend</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="lgspBackend">
-      <HintPath>..\..\bin\lgspBackend.dll</HintPath>
-    </Reference>
-    <Reference Include="libGr">
-      <HintPath>..\..\bin\libGr.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,28 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectModel\IStatement.cs" />
-    <Compile Include="ObjectModel\RuleSets\Actions\Test.cs" />
-    <Compile Include="ObjectModel\RuleSets\FileHeader.cs" />
-    <Compile Include="ObjectModel\RuleSets\GlobalVariable.cs" />
-    <Compile Include="ObjectModel\RuleSets\Graphlet.cs" />
-    <Compile Include="ObjectModel\RuleSets\Actions\Rule.cs" />
-    <Compile Include="ObjectModel\Snippet.cs" />
-    <Compile Include="Wrappers\Graphs\Edge.cs" />
-    <Compile Include="Wrappers\Graphs\Graph.cs" />
-    <Compile Include="GrGenWrapper.cs" />
-    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\ClassDeclaration.cs" />
-    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\EdgeClass.cs" />
-    <Compile Include="ObjectModel\GraphModels\ClassDeclarations\NodeClass.cs" />
-    <Compile Include="ObjectModel\GraphModels\EnumDeclaration.cs" />
-    <Compile Include="ObjectModel\CompileSet.cs" />
-    <Compile Include="ObjectModel\GrGenFile.cs" />
-    <Compile Include="ObjectModel\GraphModels\GraphModel.cs" />
-    <Compile Include="ObjectModel\RuleSets\RuleSet.cs" />
+    <Compile Include="GrGenAssemblerBackend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrappers\Graphs\Node.cs" />
-    <Compile Include="Wrappers\RewriteSequences\LazyGreedyAndListRewriteSequence.cs" />
-    <Compile Include="Wrappers\RewriteSequences\RewriteSequence.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\GrGen\Wrapper\Wrapper\GrGenWrapper.csproj">
+      <Project>{d8d6e1ea-aff2-4080-b78d-a9af52d270c9}</Project>
+      <Name>GrGenWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Compiler\Compiler.csproj">
+      <Project>{53B41218-9271-4F24-B920-28BA078421C3}</Project>
+      <Name>Compiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ObjectModel\ObjectModel.csproj">
+      <Project>{3FFD925E-E8D1-4F95-9682-1019D9CD8ACB}</Project>
+      <Name>ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
