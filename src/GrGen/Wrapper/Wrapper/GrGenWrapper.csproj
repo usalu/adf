@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="lgspBackend">
@@ -48,15 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ObjectModel\IStatement.cs" />
+    <Compile Include="ObjectModel\RuleSets\Actions\PatternStatement.cs" />
     <Compile Include="ObjectModel\RuleSets\Actions\Test.cs" />
     <Compile Include="ObjectModel\RuleSets\FileHeader.cs" />
     <Compile Include="ObjectModel\RuleSets\GlobalVariable.cs" />
     <Compile Include="ObjectModel\RuleSets\Graphlet.cs" />
     <Compile Include="ObjectModel\RuleSets\Actions\Rule.cs" />
     <Compile Include="ObjectModel\Snippet.cs" />
-    <Compile Include="Wrappers\Graphs\Edge.cs" />
-    <Compile Include="Wrappers\Graphs\Graph.cs" />
-    <Compile Include="GrGenWrapper.cs" />
+    <Compile Include="Graphs\Edge.cs" />
+    <Compile Include="Graphs\Graph.cs" />
+    <Compile Include="Rewrites\SingleRewriteSequence.cs" />
+    <Compile Include="Wrapper.cs" />
     <Compile Include="ObjectModel\GraphModels\ClassDeclarations\ClassDeclaration.cs" />
     <Compile Include="ObjectModel\GraphModels\ClassDeclarations\EdgeClass.cs" />
     <Compile Include="ObjectModel\GraphModels\ClassDeclarations\NodeClass.cs" />
@@ -66,9 +70,9 @@
     <Compile Include="ObjectModel\GraphModels\GraphModel.cs" />
     <Compile Include="ObjectModel\RuleSets\RuleSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wrappers\Graphs\Node.cs" />
-    <Compile Include="Wrappers\RewriteSequences\LazyGreedyAndListRewriteSequence.cs" />
-    <Compile Include="Wrappers\RewriteSequences\RewriteSequence.cs" />
+    <Compile Include="Graphs\Node.cs" />
+    <Compile Include="Rewrites\LazyGreedyAndListRewriteSequence.cs" />
+    <Compile Include="Rewrites\RewriteSequence.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

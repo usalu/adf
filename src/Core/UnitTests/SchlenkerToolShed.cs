@@ -13,7 +13,6 @@ namespace DDF.Core.UnitTests
     [TestClass]
     public class SchlenkerToolShed
     {
-        public DecisionSequence toolShed;
 
         [TestInitialize]
         public void SchlenkerToolShedInitialize()
@@ -35,26 +34,27 @@ namespace DDF.Core.UnitTests
             //var mainPartDecision = new Decision(new Pattern1D(new []{}) )
 
           
-            //nbm - Normal base module
-            var sidePortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var shortPortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var mitterPortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
-            var longPortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var baseModuleType = new Module("BaseModule", new [] { sidePortBaseModule, shortPortBaseModule, mitterPortBaseModule, longPortBaseModule });
+            ////nbm - Normal base module
+            //var sidePortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var shortPortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var mitterPortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
+            //var longPortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var baseModuleType = new Module("BaseModule", new [] { sidePortBaseModule, shortPortBaseModule, mitterPortBaseModule, longPortBaseModule });
 
-            //Short base module
-            var sidePortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var shortPortShortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var mitterPortShortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
-            var longPortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var shortBaseModuleType = new Module("ShortBaseModule", new [] { sidePortShortBaseModule, shortPortShortBaseModule, mitterPortShortBaseModule, longPortShortBaseModule });
+            ////Short base module
+            //var sidePortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var shortPortShortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var mitterPortShortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
+            //var longPortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
+            //var shortBaseModuleType = new Module("ShortBaseModule", new [] { sidePortShortBaseModule, shortPortShortBaseModule, mitterPortShortBaseModule, longPortShortBaseModule });
 
-            //Basic L-module
-            var basicLModuleType = new Module("BasicLModule");
+            ////Basic L-module
+            //var basicLModuleType = new Module("BasicLModule");
 
-            var basicLModuleShort = new Thing(basicLModuleType, concepts: new [] { "Short" });
-            var basicLModuleLong = new Thing(basicLModuleType, concepts: new [] { "Long" });
-            var basicLModuleShortLong = new Thing(basicLModuleType, concepts: new [] { "Short", "Long" });
+            //var basicLModuleShort = new Thing(basicLModuleType, concepts: new [] { "Short" });
+            //var basicLModuleLong = new Thing(basicLModuleType, concepts: new [] { "Long" });
+            //var basicLModuleShortLong = new Thing(basicLModuleType, concepts: new [] { "Short", "Long" });
+
 
             //// lmsd: lModuleShortDecision
             //var left_lmsd = new Thing(shortBaseModuleType);

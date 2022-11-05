@@ -26,7 +26,7 @@ namespace GrGen_Wrapper_UnitTests
             string tempDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName().Split('.').First());
             Directory.CreateDirectory(tempDirectory);
             compileSet.Write(tempDirectory);
-            Assert.Equals(Directory.GetFiles(tempDirectory), new[]{ designModelName + ".gm", schuppenModelName + ".gm", schuppenRuleSetName +".grg" });
+            Assert.AreEqual(Directory.GetFiles(tempDirectory), new[]{ designModelName + ".gm", schuppenModelName + ".gm", schuppenRuleSetName +".grg" });
             Directory.Delete(tempDirectory, true);
         }
 

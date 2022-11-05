@@ -9,11 +9,11 @@ namespace GrGenWrapper.ObjectModel.RuleSets
         /// <summary>
         /// Declaration of imported graph models.
         /// </summary>
-        public List<GraphModel> ModelUsage { get; set; }
-        public List<RuleSet> RulesInclusion { get; set; }
+        public IEnumerable<GraphModel> ModelUsage { get; set; }
+        public IEnumerable<RuleSet> RulesInclusion { get; set; }
         //public IEnumerable<GlobalVariableDeclaration> GlobalGlobalVariableDeclarations { get; set; }
 
-        public FileHeader(List<GraphModel> modelUsage = null, List<RuleSet> rulesInclusion = null)
+        public FileHeader(IEnumerable<GraphModel> modelUsage = null, IEnumerable<RuleSet> rulesInclusion = null)
         {
             ModelUsage = modelUsage ?? new List<GraphModel>();
             RulesInclusion = rulesInclusion ?? new List<RuleSet>();
@@ -21,8 +21,8 @@ namespace GrGenWrapper.ObjectModel.RuleSets
 
         public void Write(StringBuilder builder)
         {
-            ModelUsage.ForEach(x => builder.AppendLine("#using \"" + x.Name + ".gm\"\n"));
-            RulesInclusion.ForEach(x => builder.AppendLine("#include \"" + x.Name + ".grg\"\n"));
+            foreach (var model in ModelUsage) builder.AppendLine("#using \"" + model.Name + ".gm\"\n");
+            foreach (var ruleSet in RulesInclusion) builder.AppendLine("#include \"" + ruleSet.Name + ".grg\"\n");
         }
     }
 }

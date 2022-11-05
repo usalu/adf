@@ -10,7 +10,7 @@ namespace DDF.Core.ObjectModel.Decisions.Patterns.Things.Ports
         /// </summary>
         public Double Origin;
 
-        public Port1D(double origin, string name = "", IEnumerable<string>? concepts = null, Dictionary<string, object>? parameters = null) : base(name, concepts, parameters)
+        public Port1D(double origin)
         {
             Origin = origin;
         }

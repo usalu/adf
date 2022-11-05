@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using DDF.Core.Compiler.Decisions;
+using DDF.Core.Compiler.GGXBBackend;
+using DDF.Core.ObjectModel;
 using DDF.Core.ObjectModel.Decisions;
 using DDF.Core.ObjectModel.Decisions.Patterns;
 using DDF.Core.ObjectModel.Decisions.Patterns.Relations;
@@ -13,7 +16,7 @@ namespace DDF.Core.UnitTests
     [TestClass]
     public class SimpleSchlenkerToolShed
     {
-        public List<Decision> decisions = new List<Decision>();
+        public List<Decision> Decisions = new List<Decision>();
         [TestInitialize]
         public void Initialize()
         {
@@ -36,7 +39,7 @@ namespace DDF.Core.UnitTests
                 new Pattern2D(new List<Thing>()
                 {
                     cornerFrontLeft, cornerFrontRight, cornerBackLeft,cornerBackRight, 
-                    skinFrontLeft, skinFrontRight, skinSideLeft, skinSideRight, skinBack
+                    skinFrontLeft, skinFrontRight, skinSideLeft, skinSideRight, skinBack, entrance
                 }, new List<Relation>()
                 {
                     new(cornerFrontLeft,skinFrontLeft), 
@@ -47,7 +50,7 @@ namespace DDF.Core.UnitTests
                     new(skinSideRight, cornerBackRight),
                     new(cornerBackRight, skinBack),
                     new(skinBack,cornerBackLeft),
-                    new(cornerBackLeft, skinFrontLeft)
+                    new(cornerBackLeft, skinFrontLeft),
                 }, new Dictionary<Thing, Orientation2D>()
                 {
                     {cornerFrontLeft, new Orientation2D()},
@@ -62,7 +65,7 @@ namespace DDF.Core.UnitTests
                     {skinSideLeft,new Orientation2D(new Vector2(0,0.5f))},
                 }));
 
-            decisions.Add(designDecision);
+            Decisions.Add(designDecision);
 
             //Skin part
             var frameModuleLowest = new Thing("FrameModule", new List<string>(){"Box","Outside"});
@@ -85,13 +88,15 @@ namespace DDF.Core.UnitTests
 
             var skinDecision = new Decision("Skin", skinFrontPattern);
 
-            decisions.Add(skinDecision);
+            Decisions.Add(skinDecision);
 
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestGraphCompiler()
         {
+            var decisionCompiler = new DecisionCompiler(new GrGenGraphTransformationBackend());
+            var results = decisionCompiler.Compile(Decisions);
         }
     }
 }

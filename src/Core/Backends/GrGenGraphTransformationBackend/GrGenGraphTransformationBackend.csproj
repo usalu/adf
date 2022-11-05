@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GraphTranslator.cs" />
     <Compile Include="GrGenGraphTransformationBackend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,9 +50,9 @@
       <Project>{d8d6e1ea-aff2-4080-b78d-a9af52d270c9}</Project>
       <Name>GrGenWrapper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Compiler\GraphCompiler\GraphCompiler.csproj">
-      <Project>{53b41218-9271-4f24-b920-28ba078421c3}</Project>
-      <Name>GraphCompiler</Name>
+    <ProjectReference Include="..\..\Compiler\DecisionCompiler\DecisionCompiler.csproj">
+      <Project>{53B41218-9271-4F24-B920-28BA078421C3}</Project>
+      <Name>DecisionCompiler</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ObjectModel\ObjectModel.csproj">
       <Project>{3FFD925E-E8D1-4F95-9682-1019D9CD8ACB}</Project>

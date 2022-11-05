@@ -16,8 +16,12 @@ namespace GrGenWrapper
     /// <summary>
     /// Wraps the GrGen library for easier and more reliable use.
     /// </summary>
-    public class GrGenWrapper
+    public class Wrapper
     {
+        public Wrapper()
+        {
+        }
+
         IGraphProcessingEnvironment _graphProcessingEnvironment;
         public IGraph Graph => _graphProcessingEnvironment.Graph;
 
@@ -30,12 +34,22 @@ namespace GrGenWrapper
         {
             sequence.ApplyOn(_graphProcessingEnvironment);
         }
+
+        public void Apply(string rewriteSequence)
+        {
+            _graphProcessingEnvironment.ApplyGraphRewriteSequence(rewriteSequence);
+        }
+
+        public void Save()
+        {
+        }
+
         /// <summary>
         /// Launches GrGen and dynamically recompile the source code to instantiate a graph processing environment.
         /// </summary>
         /// <param name="compileSet"></param>
         /// <returns></returns>
-        public static IGraphProcessingEnvironment CreateGraphProcessingEnvironment(CompileSet compileSet)
+        static IGraphProcessingEnvironment CreateGraphProcessingEnvironment(CompileSet compileSet)
         {
             string tempDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName().Split('.').First());
             

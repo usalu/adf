@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDF.Core.ObjectModel.Graphs
+namespace GrGenWrapper.RewriteSequences
 {
-    public class Graph
+    public class SingleRewrite
     {
     }
 }

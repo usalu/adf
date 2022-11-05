@@ -1,0 +1,4 @@
+abstract node class DesignNode {
+    filled: boolean;
+}
+undirected edge class connected;

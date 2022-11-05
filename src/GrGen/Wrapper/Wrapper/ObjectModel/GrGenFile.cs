@@ -26,9 +26,9 @@ namespace GrGenWrapper.ObjectModel
         /// <summary>
         /// A generic container for code snippets. No syntactical checks are performed. Only use this if you know what you are doing.
         /// </summary>
-        public List<Snippet> Snippets { get; set; }
+        public IEnumerable<Snippet> Snippets { get; set; }
 
-        public GrGenFile(string name, List<Snippet> snippets=null)
+        public GrGenFile(string name, IEnumerable<Snippet> snippets=null)
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentNullException(nameof(name));

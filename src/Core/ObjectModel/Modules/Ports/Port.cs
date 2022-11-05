@@ -2,9 +2,13 @@
 
 namespace DDF.Core.ObjectModel.Decisions.Patterns.Things.Ports;
 
-public abstract class Port: Instance
+/// <summary>
+/// A port is a compatible interface between two modules.
+/// </summary>
+public abstract class Port
 {
-    protected Port(string name = "", IEnumerable<string>? concepts = null, Dictionary<string, object>? parameters = null) : base(name, concepts, parameters)
+    protected Port()
     {
+
     }
 }

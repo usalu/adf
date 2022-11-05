@@ -7,8 +7,15 @@ using de.unika.ipd.grGen.libGr;
 
 namespace GrGenWrapper.ObjectModel.GraphModels.ClassDeclarations
 {
-    internal class EdgeClass
+    public class EdgeClass: ClassDeclaration
     {
-       
+        public EdgeClass(string name, IEnumerable<ClassDeclaration>? parentClassDeclarations = null) : base(name, parentClassDeclarations)
+        {
+        }
+
+        public override void Write(StringBuilder builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

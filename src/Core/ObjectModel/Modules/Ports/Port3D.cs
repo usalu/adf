@@ -9,7 +9,7 @@ public class Port3D : Port
     public Vector3 Direction;
     public Vector3 Normal;
 
-    public Port3D(Vector3 origin, Vector3 direction, Vector3 normal, string name = "", IEnumerable<string>? concepts = null, Dictionary<string, object>? parameters = null) : base(name, concepts, parameters)
+    public Port3D(Vector3 origin, Vector3 direction, Vector3 normal)
     {
         Origin = origin;
         Direction = direction;

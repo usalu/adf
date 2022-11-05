@@ -8,11 +8,11 @@ namespace GrGenWrapper.ObjectModel
 {
     public class CompileSet
     {
-        public List<GraphModel> Models { get;}
+        public IEnumerable<GraphModel> Models { get;}
         public RuleSet RuleSet { get;}
         public string Name => RuleSet.Name;
         public string FullName => RuleSet.FullName;
-        public CompileSet(List<GraphModel> models, RuleSet ruleSet)
+        public CompileSet(IEnumerable<GraphModel> models, RuleSet ruleSet)
         {
             Models = models ?? throw new ArgumentNullException(nameof(models));
             RuleSet = ruleSet ?? throw new ArgumentNullException(nameof(ruleSet));
@@ -20,7 +20,7 @@ namespace GrGenWrapper.ObjectModel
 
         public void Write(string folder)
         {
-            Models.ForEach(x => x.Write(folder));
+            foreach (var model in Models) model.Write(folder);
             RuleSet.Write(folder);
         }
     }

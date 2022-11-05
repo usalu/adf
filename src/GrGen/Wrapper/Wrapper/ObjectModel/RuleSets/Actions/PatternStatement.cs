@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDF.Core.Compiler.Graph
+namespace GrGenWrapper.ObjectModel.RuleSets.Actions
 {
-    public class GraphCompilerResults
+    internal class PatternStatement
     {
-        public ObjectModel.Graphs.Graph Graph { get; }
     }
 }

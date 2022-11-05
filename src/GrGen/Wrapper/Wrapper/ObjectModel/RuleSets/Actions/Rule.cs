@@ -5,10 +5,16 @@ namespace GrGenWrapper.ObjectModel.RuleSets.Actions
 {
     public class Rule: IStatement
     {
-        public List<Graphlet> Graphlets { get; set; }
+        public IEnumerable<Graphlet> Graphlets { get; set; }
+
+        public Rule(IEnumerable<Graphlet> graphlets)
+        {
+            Graphlets = graphlets;
+        }
+
         public void Write(StringBuilder builder)
         {
-            Graphlets.ForEach(x => x.Write(builder));
+            foreach (var graphlet in Graphlets) graphlet.Write(builder);
         }
     }
 }

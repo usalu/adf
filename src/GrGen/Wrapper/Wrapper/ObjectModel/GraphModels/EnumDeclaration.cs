@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GrGenWrapper.ObjectModel.GraphModels
 {
-    public class EnumDeclaration
+    public class EnumDeclaration : IStatement
     {
+        public void Write(StringBuilder builder)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
