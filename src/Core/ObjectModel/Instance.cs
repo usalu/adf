@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DDF.Core.ObjectModel
 {
-    public abstract class Instance
+    public abstract class Instance: ICloneable
     {
-        public string Name { get; }
         public IEnumerable<string> Concepts { get; }
-        public Dictionary<string, object> Parameters { get; }
+        public CloneableDictionary<string, ICloneable> Parameters { get; }
 
-        protected Instance(string name = "", IEnumerable<string>? concepts = null, Dictionary<string, object>? parameters = null)
+        protected Instance(IEnumerable<string>? concepts = null, CloneableDictionary<string, ICloneable>? parameters = null)
         {
-            Name = name;
             Concepts = concepts ?? new List<string>();
-            Parameters = parameters ?? new Dictionary<string, object>();
+            Parameters = parameters ?? new CloneableDictionary<string, ICloneable>();
         }
+        public abstract object Clone();
     }
 }

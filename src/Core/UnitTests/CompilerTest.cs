@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using DDF.Core.Compiler.GGXBBackend;
 using DDF.Core.ObjectModel;
 using DDF.Core.ObjectModel.Decisions;
 
@@ -9,7 +8,7 @@ namespace DDF.Core.UnitTests;
 [TestClass]
 public class CompilerTest
 {
-    Compiler.Compiler _compiler;
+    GraphCo
     [TestInitialize]
     public void CompilerInitialize()
     {

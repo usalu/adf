@@ -13,13 +13,13 @@ namespace DDF.Core.UnitTests
     [TestClass]
     public class SchlenkerToolShed
     {
-        public DesignPlan toolShed;
+        public DecisionSequence toolShed;
 
         [TestInitialize]
         public void SchlenkerToolShedInitialize()
         {
 
-            var design = new ThingType("Design");
+            var design = new Module("Design");
 
             //var roof = new Thing("Roof");
             //var mainPart = new Thing("MainPart");
@@ -40,44 +40,44 @@ namespace DDF.Core.UnitTests
             var shortPortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
             var mitterPortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
             var longPortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var baseModuleType = new ThingType("BaseModule", new [] { sidePortBaseModule, shortPortBaseModule, mitterPortBaseModule, longPortBaseModule });
+            var baseModuleType = new Module("BaseModule", new [] { sidePortBaseModule, shortPortBaseModule, mitterPortBaseModule, longPortBaseModule });
 
             //Short base module
             var sidePortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
             var shortPortShortBaseModule = new Port2D(new Vector2(55, 55), new Vector2(1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
             var mitterPortShortBaseModule = new Port2D(new Vector2(82.5f, 55), new Vector2(1, 1), parameters: new Dictionary<string, object>() { { "Length", 77.8f } });
             var longPortShortBaseModule = new Port2D(new Vector2(0, 55), new Vector2(-1, 0), parameters: new Dictionary<string, object>() { { "Length", 110f } });
-            var shortBaseModuleType = new ThingType("ShortBaseModule", new [] { sidePortShortBaseModule, shortPortShortBaseModule, mitterPortShortBaseModule, longPortShortBaseModule });
+            var shortBaseModuleType = new Module("ShortBaseModule", new [] { sidePortShortBaseModule, shortPortShortBaseModule, mitterPortShortBaseModule, longPortShortBaseModule });
 
             //Basic L-module
-            var basicLModuleType = new ThingType("BasicLModule");
+            var basicLModuleType = new Module("BasicLModule");
 
             var basicLModuleShort = new Thing(basicLModuleType, concepts: new [] { "Short" });
             var basicLModuleLong = new Thing(basicLModuleType, concepts: new [] { "Long" });
             var basicLModuleShortLong = new Thing(basicLModuleType, concepts: new [] { "Short", "Long" });
 
-            // lmsd: lModuleShortDecision
-            var left_lmsd = new Thing(shortBaseModuleType);
-            var right_lmsd = new Thing(shortBaseModuleType);
-            var lmsd = new Decision(
-                new Pattern1D(basicLModuleShort),
-                new Pattern2D(new []{ left_lmsd, right_lmsd },
-                    new [] {new Relation(left_lmsd, left_lmsd) },
-                    new Dictionary<Thing, Vector2>(){ { left_lmsd, new Vector2(0,1)},{right_lmsd, new Vector2(1,0)} }));
+            //// lmsd: lModuleShortDecision
+            //var left_lmsd = new Thing(shortBaseModuleType);
+            //var right_lmsd = new Thing(shortBaseModuleType);
+            //var lmsd = new Decision(
+            //    new Pattern1D(basicLModuleShort),
+            //    new Pattern2D(new []{ left_lmsd, right_lmsd },
+            //        new [] {new Relation(left_lmsd, left_lmsd) },
+            //        new Dictionary<Thing, Vector2>(){ { left_lmsd, new Vector2(0,1)},{right_lmsd, new Vector2(1,0)} }));
 
-            // lmld: lModuleLongDecision
-            var left_lmld = new Thing(shortBaseModuleType);
-            var right_lmld = new Thing(shortBaseModuleType);
-            var lmld = new Decision(
-                new Pattern1D(basicLModuleShort),
-                new Pattern2D(new [] { left_lmld, right_lmld },
-                    new [] { new Relation(left_lmld, left_lmld) },
-                    new Dictionary<Thing, Vector2>() { { left_lmld, new Vector2(0, 1) }, { right_lmld, new Vector2(1, 0) } }));
+            //// lmld: lModuleLongDecision
+            //var left_lmld = new Thing(shortBaseModuleType);
+            //var right_lmld = new Thing(shortBaseModuleType);
+            //var lmld = new Decision(
+            //    new Pattern1D(basicLModuleShort),
+            //    new Pattern2D(new [] { left_lmld, right_lmld },
+            //        new [] { new Relation(left_lmld, left_lmld) },
+            //        new Dictionary<Thing, Vector2>() { { left_lmld, new Vector2(0, 1) }, { right_lmld, new Vector2(1, 0) } }));
 
-            toolShed = new DesignPlan("Schlenker tool shed",new []
-            {
-                lmsd,lmld
-            });
+            //toolShed = new DesignPlan("Schlenker tool shed",new []
+            //{
+            //    lmsd,lmld
+            //});
         }
 
 
