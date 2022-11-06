@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DDF.Core.ObjectModel.Decisions.Patterns.Relations;
 using DDF.Core.ObjectModel.Decisions.Patterns.Things;
+using DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations;
 
 namespace DDF.Core.ObjectModel.Decisions.Patterns;
 

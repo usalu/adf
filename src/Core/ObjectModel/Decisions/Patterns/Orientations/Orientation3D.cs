@@ -10,7 +10,7 @@ namespace DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations
     /// <summary>
     /// Describes a relational orientation inside a three dimensional space.
     /// </summary>
-    public class Orientation3D
+    public struct Orientation3D
     {
         /// <summary>
         /// Coordinates of the location.
@@ -26,5 +26,12 @@ namespace DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations
         /// The tangent plane has the tangent of u as x vector and tangent of v as y vector.
         /// </summary>
         public double Gamma { get; }
+
+        public Orientation3D(Vector3 point = default, double alpha = 0, double gamma=0)
+        {
+            Point = point;
+            Alpha = alpha;
+            Gamma = gamma;
+        }
     }
 }

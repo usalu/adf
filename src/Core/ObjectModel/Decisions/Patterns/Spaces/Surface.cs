@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DDF.Core.ObjectModel.Decisions.Patterns.Spaces
 {
 
-    public class Surface: Space
+    public abstract class Surface: Space
     {
-        public static Surface WorldXY => new Surface();
+        public abstract Vector3 EvaluateAt(double u, double v);
     }
 }

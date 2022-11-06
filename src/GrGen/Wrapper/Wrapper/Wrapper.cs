@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using de.unika.ipd.grGen.graphViewerAndSequenceDebugger;
 using de.unika.ipd.grGen.lgsp;
 using de.unika.ipd.grGen.libGr;
 using GrGenWrapper.ObjectModel;
@@ -40,8 +41,9 @@ namespace GrGenWrapper
             _graphProcessingEnvironment.ApplyGraphRewriteSequence(rewriteSequence);
         }
 
-        public void Save()
+        public void Show()
         {
+            GraphViewer.ShowGraphWithDot(new DebuggerGraphProcessingEnvironment(Graph), "dot", "", false);
         }
 
         /// <summary>

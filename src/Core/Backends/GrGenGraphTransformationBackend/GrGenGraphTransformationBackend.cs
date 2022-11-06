@@ -6,6 +6,7 @@ using DDF.Core.Compiler.Backends;
 using DDF.Core.ObjectModel;
 using DDF.Core.ObjectModel.Decisions;
 using DDF.Core.ObjectModel.Decisions.Patterns.Relations;
+using DDF.Core.ObjectModel.Decisions.Patterns.Things;
 using DDF.Core.ObjectModel.Graphs;
 using GrGenWrapper;
 using GrGenWrapper.ObjectModel;
@@ -39,7 +40,7 @@ namespace DDF.Core.Compiler.GGXBBackend
             foreach (var decision in decisions)
             {
                 foreach (var thing in decision.Context.Things) classes.Add(thing.TypeName);
-                foreach (var thing in decision.Modification.Things) classes.Add(thing.TypeName);
+                foreach (var thing in decision.ModifiedContext.Things) classes.Add(thing.TypeName);
             }
 
             var designGraph = new GraphModel("designGraph",
@@ -48,11 +49,10 @@ namespace DDF.Core.Compiler.GGXBBackend
             
             var graphModels = new List<GraphModel>() { designGraphLibraryModel,designGraph };
 
+            //RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), decisions.Select(GetRewrittingRule));
             var snippets = new List<Snippet>();
             snippets.Add(new Snippet(@"rule init { modify { d:" + decisions.First().Context.Things.First().TypeName + @"; } }"));
             snippets.AddRange(decisions.Select(GetDefaultRewrittingRuleSnipped));
-
-            //RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), decisions.Select(GetRewrittingRule));
             RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), snippets: snippets);
 
             CompileSet compileSet = new CompileSet(graphModels, ruleSet);
@@ -64,6 +64,7 @@ namespace DDF.Core.Compiler.GGXBBackend
             //Apply all sequences
             _wrapper.Apply("init");
             _wrapper.Apply(new LazyGreedyAndListRewriteSequence(_ruleNames));
+            _wrapper.Show();
 
             //Translate back
             GraphTranslator translator = new GraphTranslator();
@@ -77,7 +78,7 @@ namespace DDF.Core.Compiler.GGXBBackend
             return new GraphModel("designGraphLibrary",
                 new List<Snippet>()
                 {
-                    new Snippet(@"abstract node class DesignNode { filled: boolean; } undirected edge class connected;")
+                    new Snippet(@"abstract node class DesignNode { filled: boolean; x:double; y:double; z:double; alpha:double; gamma:double; } undirected edge class connected;")
                 });
         }
 
@@ -88,26 +89,37 @@ namespace DDF.Core.Compiler.GGXBBackend
 
         Snippet GetDefaultRewrittingRuleSnipped(Decision decision)
         {
-            string firstLevelWhiteSpaces = "    ";
-            string secondLevelWhiteSpaces = "        ";
+            
 
             string typeName = decision.Context.Things.First().TypeName;
-            var thingsTypeNameRHS = decision.Modification.Things.Select(x => x.TypeName).ToArray();
-            var thingsRHS = decision.Modification.Things.Select(x => x.Guid).ToArray();
-            var relationsRHS = decision.Modification.Relations;
+            var thingsRHS = decision.ModifiedContext.Things.ToArray();
+            var thingsTypeNameRHS = decision.ModifiedContext.Things.Select(x => x.TypeName).ToArray();
+            var thingsGuidRHS = decision.ModifiedContext.Things.Select(x => x.Guid).ToArray();
+
+            var relationsRHS = decision.ModifiedContext.Relations;
 
             Dictionary<Guid,string> variableNamesMap = new Dictionary<Guid, string>();
 
             var variableNames = new List<string>();
-            for (int i = 0; i < thingsRHS.Length; i++)
+            for (int i = 0; i < thingsGuidRHS.Length; i++)
             {
                 var variableName = "x" + i;
-                variableNamesMap[thingsRHS[i]]=variableName;
-                variableNames.Add(secondLevelWhiteSpaces + variableName);
+                variableNamesMap[thingsGuidRHS[i]]=variableName;
+                variableNames.Add(variableName);
             }
 
             var variableDeclarations = new List<string>();
-            for (int i = 0; i < thingsRHS.Length; i++) variableDeclarations.Add(variableNames[i] + ":" + thingsTypeNameRHS[i] + ";");
+            for (int i = 0; i < thingsGuidRHS.Length; i++) variableDeclarations.Add(variableNames[i] + ":" + thingsTypeNameRHS[i] + ";");
+
+
+            var nodeInitialValues = new List<string>();
+            for (int i = 0; i < thingsGuidRHS.Length; i++)
+            {
+                var orientation = decision.ModifiedContext.Embedding[thingsRHS[i]];
+                nodeInitialValues.Add(variableNames[i] + ".x = " + +orientation.Point.X + ";");
+                nodeInitialValues.Add(variableNames[i] + ".y = " + +orientation.Point.Y + ";");
+                nodeInitialValues.Add(variableNames[i] + ".z = " + +orientation.Point.Z + ";");
+            }
 
             var relationDeclarations = new List<string>();
             foreach (var relation in relationsRHS)
@@ -117,8 +129,12 @@ namespace DDF.Core.Compiler.GGXBBackend
 
             string ruleName = typeName + "DefaultRule";
             _ruleNames.Add(ruleName);
-            string snippet = "rule " + ruleName + @" { d:" + typeName + @"; if { d.filled==false; } modify {" + "\n" + string.Join("\n", variableDeclarations) +
-                string.Join("\n", relationDeclarations) + "eval { d.filled=true; } } }";
+
+            string replacementMechanism =
+                decision.DecisionMechanism == DecisionMechanism.Destruction ? "replace" : "modify";
+
+            string snippet = "rule " + ruleName + @" { d:" + typeName + @"; if { d.filled==false; }" + replacementMechanism +"{" + string.Join("\n", variableDeclarations) +
+                string.Join("\n", relationDeclarations) + "eval { d.filled=true; "+ string.Join("\n", nodeInitialValues) +" } } }";
             return new Snippet(snippet);
         }
     }

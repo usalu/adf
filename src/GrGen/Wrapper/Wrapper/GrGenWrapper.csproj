@@ -33,6 +33,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="graphViewerAndSequenceDebugger">
+      <HintPath>..\..\bin\graphViewerAndSequenceDebugger.dll</HintPath>
+    </Reference>
     <Reference Include="lgspBackend">
       <HintPath>..\..\bin\lgspBackend.dll</HintPath>
     </Reference>

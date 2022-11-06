@@ -11,9 +11,9 @@ namespace DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations
     /// <summary>
     /// Describes a relational orientation on a surface.
     /// </summary>
-    public class Orientation2D
+    public struct Orientation2D
     {
-        public Orientation2D(Vector2 point = default, double rotation = default)
+        public Orientation2D(Vector2 point = default, double rotation = 0)
         {
             Point = point;
             Rotation = rotation;

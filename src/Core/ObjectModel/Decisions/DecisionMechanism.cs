@@ -2,7 +2,6 @@
 {
     public enum DecisionMechanism
     {
-        Addition,
         Modification,
         Destruction
     }

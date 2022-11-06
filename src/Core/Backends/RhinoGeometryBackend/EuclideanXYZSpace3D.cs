@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RhinoGeometryBackend
 {
-    public class Class1
+    public class EuclideanXYZSpace3D
     {
     }
 }

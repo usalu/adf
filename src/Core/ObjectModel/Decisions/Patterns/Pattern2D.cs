@@ -18,10 +18,9 @@ namespace DDF.Core.ObjectModel.Decisions.Patterns
         public Surface Space;
 
         public Pattern2D(IEnumerable<Thing> things, IEnumerable<Relation>? relations = null,
-            Dictionary<Thing, Orientation2D>? embedding = null, Surface? space = null) : base(things, relations)
+            Dictionary<Thing, Orientation2D>? embedding = null) : base(things, relations)
         {
             Embedding = embedding ?? new Dictionary<Thing, Orientation2D>();
-            Space = space ?? Surface.WorldXY;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace DDF.Core.ObjectModel.Decisions.Patterns.Spaces
     /// </summary>
     public abstract class Space
     {
+        
     }
 }
