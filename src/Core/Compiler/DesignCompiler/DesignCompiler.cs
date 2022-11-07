@@ -11,7 +11,7 @@ namespace DesignCompiler
 {
     public class DesignCompiler
     {
-        public Design compile(SemanticalSkeleton skeleton, IEnumerable<Module> modules,
+        public Design compile(SemanticSkeleton skeleton, IEnumerable<Module> modules,
             Dictionary<string, Module>? typeModuleMapping = null)
         {
             return new Design();

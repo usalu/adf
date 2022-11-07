@@ -9,6 +9,7 @@ using de.unika.ipd.grGen.graphViewerAndSequenceDebugger;
 using de.unika.ipd.grGen.lgsp;
 using de.unika.ipd.grGen.libGr;
 using GrGenWrapper.ObjectModel;
+using GrGenWrapper.Wrappers.Graphs;
 using GrGenWrapper.Wrappers.RewriteSequences;
 using Microsoft.CSharp;
 
@@ -24,7 +25,7 @@ namespace GrGenWrapper
         }
 
         IGraphProcessingEnvironment _graphProcessingEnvironment;
-        public IGraph Graph => _graphProcessingEnvironment.Graph;
+        public Graph Graph => new(_graphProcessingEnvironment.Graph);
 
         public void Initialize(CompileSet compileSet)
         {
@@ -43,7 +44,7 @@ namespace GrGenWrapper
 
         public void Show()
         {
-            GraphViewer.ShowGraphWithDot(new DebuggerGraphProcessingEnvironment(Graph), "dot", "", false);
+            GraphViewer.ShowGraphWithDot(new DebuggerGraphProcessingEnvironment(_graphProcessingEnvironment.Graph), "dot", "", false);
         }
 
         /// <summary>

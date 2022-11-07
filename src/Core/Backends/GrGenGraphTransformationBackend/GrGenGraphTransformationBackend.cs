@@ -30,7 +30,7 @@ namespace DDF.Core.Compiler.GGXBBackend
             _ruleNames = new List<string>();
         }
 
-        public SemanticalSkeleton TransformGraph(List<Decision> decisions, SemanticalSkeleton startingGraph = null)
+        public SemanticSkeleton TransformGraph(List<Decision> decisions, SemanticSkeleton startingGraph = null)
         {
             //Get static library code
             var designGraphLibraryModel = GetLibrary();
@@ -53,7 +53,7 @@ namespace DDF.Core.Compiler.GGXBBackend
             var snippets = new List<Snippet>();
             snippets.Add(new Snippet("\nfunction getU(var alpha:double, var gamma:double): Vector { def var x:double = Math::cos(alpha)*Math::cos(alpha); " +
                                      "def var y:double = Math::sin(alpha)*Math::cos(gamma); def var z:double = Math::sin(gamma); return( new Vector@(x=x, y=y, z=z)); } "));
-            snippets.Add(new Snippet(@"rule init { modify { d:" + decisions.First().Context.Things.First().TypeName + @";" +
+            snippets.Add(new Snippet("\nrule init { modify { d:" + decisions.First().Context.Things.First().TypeName + @";" +
                                      "\neval{d.o = new Orientation@(p=new Vector@(x = 0,y=0,z=0), alpha = 0, gamma= 0); } } }"));
             snippets.AddRange(decisions.Select(GetDefaultRewrittingRuleSnipped));
             RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), snippets: snippets);
@@ -67,13 +67,11 @@ namespace DDF.Core.Compiler.GGXBBackend
             //Apply all sequences
             _wrapper.Apply("init");
             _wrapper.Apply(new LazyGreedyAndListRewriteSequence(_ruleNames));
-            _wrapper.Show();
+            //_wrapper.Show();
 
             //Translate back
             GraphTranslator translator = new GraphTranslator();
-
-
-            throw new NotImplementedException();
+            return translator.Translate(_wrapper.Graph);
         }
 
         GraphModel GetLibrary()

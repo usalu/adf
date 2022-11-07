@@ -9,11 +9,11 @@ namespace DDF.Core.Compiler.Graph
 {
     public class DecisionCompilerResults
     {
-        public DecisionCompilerResults(SemanticalSkeleton semanticalSkeleton)
+        public DecisionCompilerResults(SemanticSkeleton semanticSkeleton)
         {
-            SemanticalSkeleton = semanticalSkeleton;
+            SemanticSkeleton = semanticSkeleton;
         }
 
-        public SemanticalSkeleton SemanticalSkeleton { get; }
+        public SemanticSkeleton SemanticSkeleton { get; }
     }
 }

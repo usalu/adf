@@ -18,6 +18,6 @@ namespace DDF.Core.Compiler.Backends
         /// <param name="decisions"></param>
         /// <param name="baseSkeleton"></param>
         /// <returns></returns>
-        SemanticalSkeleton TransformGraph(List<Decision> decisions, SemanticalSkeleton? baseSkeleton = null);
+        SemanticSkeleton TransformGraph(List<Decision> decisions, SemanticSkeleton? baseSkeleton = null);
     }
 }

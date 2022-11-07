@@ -10,5 +10,13 @@ namespace GrGenWrapper.Wrappers.Graphs
 {
     public class Edge
     {
+        public Node Relating { get; }
+        public Node Related { get; }
+
+        public Edge(Node relating, Node related)
+        {
+            Relating = relating;
+            Related = related;
+        }
     }
 }

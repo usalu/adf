@@ -53,7 +53,7 @@
     <Compile Include="Decisions\Pattern.cs" />
     <Compile Include="Decisions\Relation.cs" />
     <Compile Include="Decisions\Thing.cs" />
-    <Compile Include="SemanticalSkeletons\SemanticalSkeleton.cs" />
+    <Compile Include="SemanticalSkeletons\SemanticSkeleton.cs" />
     <Compile Include="Modules\Ports\Port.cs" />
     <Compile Include="Modules\Ports\Port1D.cs" />
     <Compile Include="Modules\Ports\Port2D.cs" />

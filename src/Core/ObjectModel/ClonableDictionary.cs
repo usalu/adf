@@ -22,5 +22,25 @@ namespace DDF.Core.ObjectModel
             }
             return clone;
         }
+
+        public CloneableDictionary()
+        {
+        }
+
+        public CloneableDictionary(Dictionary<TKey,object> dictionary)
+        {
+            foreach (var key in dictionary.Keys)
+            {
+                try
+                {
+                    Add(key, (TValue)dictionary[key]);
+                }
+                catch (Exception e)
+                {
+                    
+                }
+               
+            }
+        }
     }
 }
