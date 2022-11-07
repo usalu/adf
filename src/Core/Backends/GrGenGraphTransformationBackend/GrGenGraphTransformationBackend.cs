@@ -51,7 +51,10 @@ namespace DDF.Core.Compiler.GGXBBackend
 
             //RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), decisions.Select(GetRewrittingRule));
             var snippets = new List<Snippet>();
-            snippets.Add(new Snippet(@"rule init { modify { d:" + decisions.First().Context.Things.First().TypeName + @"; } }"));
+            snippets.Add(new Snippet("\nfunction getU(var alpha:double, var gamma:double): Vector { def var x:double = Math::cos(alpha)*Math::cos(alpha); " +
+                                     "def var y:double = Math::sin(alpha)*Math::cos(gamma); def var z:double = Math::sin(gamma); return( new Vector@(x=x, y=y, z=z)); } "));
+            snippets.Add(new Snippet(@"rule init { modify { d:" + decisions.First().Context.Things.First().TypeName + @";" +
+                                     "\neval{d.o = new Orientation@(p=new Vector@(x = 0,y=0,z=0), alpha = 0, gamma= 0); } } }"));
             snippets.AddRange(decisions.Select(GetDefaultRewrittingRuleSnipped));
             RuleSet ruleSet = new RuleSet("designGraph", new FileHeader(graphModels), snippets: snippets);
 
@@ -78,7 +81,9 @@ namespace DDF.Core.Compiler.GGXBBackend
             return new GraphModel("designGraphLibrary",
                 new List<Snippet>()
                 {
-                    new Snippet(@"abstract node class DesignNode { filled: boolean; x:double; y:double; z:double; alpha:double; gamma:double; } undirected edge class connected;")
+                    new Snippet( "class Vector { x:double; y: double; z: double;}" + "\nclass Orientation { p:Vector; alpha:double; gamma:double;}" +
+                                 "\nabstract node class DesignNode { filled: boolean; o: Orientation; }" +
+                                 "\nundirected edge class connected;")
                 });
         }
 
@@ -116,9 +121,9 @@ namespace DDF.Core.Compiler.GGXBBackend
             for (int i = 0; i < thingsGuidRHS.Length; i++)
             {
                 var orientation = decision.ModifiedContext.Embedding[thingsRHS[i]];
-                nodeInitialValues.Add(variableNames[i] + ".x = " + +orientation.Point.X + ";");
-                nodeInitialValues.Add(variableNames[i] + ".y = " + +orientation.Point.Y + ";");
-                nodeInitialValues.Add(variableNames[i] + ".z = " + +orientation.Point.Z + ";");
+                nodeInitialValues.Add(variableNames[i] + ".o = new Orientation@(p=new Vector@(x = d.o.p.x + "+ orientation.Point.X +
+                                      ",y = d.o.p.y + " + orientation.Point.Y + ",z = d.o.p.y + " + orientation.Point.Z + 
+                                      "), alpha = d.o.alpha +" + orientation.Alpha + ", gamma= d.o.gamma + " + orientation.Alpha +"); ");
             }
 
             var relationDeclarations = new List<string>();
@@ -133,8 +138,8 @@ namespace DDF.Core.Compiler.GGXBBackend
             string replacementMechanism =
                 decision.DecisionMechanism == DecisionMechanism.Destruction ? "replace" : "modify";
 
-            string snippet = "rule " + ruleName + @" { d:" + typeName + @"; if { d.filled==false; }" + replacementMechanism +"{" + string.Join("\n", variableDeclarations) +
-                string.Join("\n", relationDeclarations) + "eval { d.filled=true; "+ string.Join("\n", nodeInitialValues) +" } } }";
+            string snippet = "rule " + ruleName + "{ d:" + typeName + "; if { d.filled==false; }\n" + replacementMechanism +"{" + string.Join("\n", variableDeclarations) +
+                string.Join("\n", relationDeclarations) + "\neval { d.filled=true; "+ string.Join("\n", nodeInitialValues) +" } } }";
             return new Snippet(snippet);
         }
     }

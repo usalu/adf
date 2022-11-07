@@ -13,7 +13,7 @@ public class Decision
 {
     public Pattern Context { get; }
     public Pattern ModifiedContext { get; }
-    public Orientation3D ModifiedContextOrientation { get; }
+    public Orientation ModifiedContextOrientation { get; }
     public DecisionMechanism DecisionMechanism { get; }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class Decision
         throw new NotImplementedException();
     }
 
-    public Decision(Pattern context, Pattern modifiedContext, Orientation3D modifiedContextOrientation = default, DecisionMechanism decisionMechanism = default)
+    public Decision(Pattern context, Pattern modifiedContext, Orientation modifiedContextOrientation = default, DecisionMechanism decisionMechanism = default)
     {
         Context = context;
         ModifiedContext = modifiedContext;
@@ -47,8 +47,8 @@ public class Decision
         DecisionMechanism = decisionMechanism;
     }
 
-    public Decision(string typeName, Pattern modifiedContext, Orientation3D modifiedContextOrientation = default, DecisionMechanism decisionMechanism = default )
-        : this(new Pattern1D(new Thing(typeName)), modifiedContext, modifiedContextOrientation, decisionMechanism)
+    public Decision(string typeName, Pattern modifiedContext, Orientation modifiedContextOrientation = default, DecisionMechanism decisionMechanism = default )
+        : this(new Pattern(new Thing(typeName)), modifiedContext, modifiedContextOrientation, decisionMechanism)
     {
     }
 

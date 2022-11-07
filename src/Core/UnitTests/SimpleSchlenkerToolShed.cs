@@ -36,7 +36,7 @@ namespace DDF.Core.UnitTests
 
             var designDecision = new Decision(
                 "Design",
-                new Pattern2D(new List<Thing>()
+                new Pattern(new List<Thing>()
                 {
                     cornerFrontLeft, cornerFrontRight, cornerBackLeft,cornerBackRight, 
                     skinFrontLeft, skinFrontRight, skinSideLeft, skinSideRight, skinBack, entrance
@@ -51,18 +51,18 @@ namespace DDF.Core.UnitTests
                     new(cornerBackRight, skinBack),
                     new(skinBack,cornerBackLeft),
                     new(cornerBackLeft, skinFrontLeft),
-                }, new Dictionary<Thing, Orientation2D>()
+                }, new Dictionary<Thing, Orientation>()
                 {
-                    {cornerFrontLeft, new Orientation2D()},
-                    {skinFrontLeft,new Orientation2D(new Vector2(0.25f,0),180)},
-                    {entrance,new Orientation2D(new Vector2(0.5f,0),180)},
-                    {skinFrontRight,new Orientation2D(new Vector2(0.75f,0),180)},
-                    {cornerFrontRight,new Orientation2D(new Vector2(1f,0))},
-                    {skinSideRight,new Orientation2D(new Vector2(1f,0.5f),270)},
-                    {cornerBackRight,new Orientation2D(new Vector2(1f,1f))},
-                    {skinBack,new Orientation2D(new Vector2(0.5f,1f))},
-                    {cornerBackLeft,new Orientation2D(new Vector2(0,1f))},
-                    {skinSideLeft,new Orientation2D(new Vector2(0,0.5f),90)},
+                    {cornerFrontLeft, new Orientation()},
+                    {skinFrontLeft,new Orientation(new Vector2(0.25f,0),180)},
+                    {entrance,new Orientation(new Vector2(0.5f,0),180)},
+                    {skinFrontRight,new Orientation(new Vector2(0.75f,0),180)},
+                    {cornerFrontRight,new Orientation(new Vector2(1f,0))},
+                    {skinSideRight,new Orientation(new Vector2(1f,0.5f),270)},
+                    {cornerBackRight,new Orientation(new Vector2(1f,1f))},
+                    {skinBack,new Orientation(new Vector2(0.5f,1f))},
+                    {cornerBackLeft,new Orientation(new Vector2(0,1f))},
+                    {skinSideLeft,new Orientation(new Vector2(0,0.5f),90)},
                 }));
 
             Decisions.Add(designDecision);
@@ -73,7 +73,7 @@ namespace DDF.Core.UnitTests
             var frameModuleHigh = (Thing)frameModuleLowest.Clone();
             var frameModuleHighest = (Thing)frameModuleLow.Clone();
 
-            var skinFrontPattern = new Pattern1D( new List<Thing>()
+            var skinFrontPattern = new Pattern( new List<Thing>()
             {
                 frameModuleLowest,frameModuleLow,frameModuleHigh,frameModuleHighest,
             }, new List<Relation>()
@@ -81,12 +81,13 @@ namespace DDF.Core.UnitTests
                 new(frameModuleLowest,frameModuleLow),
                 new(frameModuleLow,frameModuleHigh),
                 new(frameModuleHigh,frameModuleHighest),
-            }, new Dictionary<Thing, double>()
+            }, new Dictionary<Thing, Orientation>()
             {
-                {frameModuleLowest,0}, {frameModuleLow,1.0/3.0}, {frameModuleHigh,2.0/3.0},{frameModuleHighest,1}
+                {frameModuleLowest,new Orientation(0)}, {frameModuleLow,new Orientation(1.0f/3.0f)}, 
+                {frameModuleHigh,new Orientation(2.0f/3.0f)},{frameModuleHighest,new Orientation(1)}
             });
 
-            var skinDecision = new Decision("Skin", skinFrontPattern, new Orientation3D(gamma:90));
+            var skinDecision = new Decision("Skin", skinFrontPattern, new Orientation(0,gamma:90));
 
             Decisions.Add(skinDecision);
 

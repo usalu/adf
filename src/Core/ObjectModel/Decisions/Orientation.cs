@@ -10,7 +10,7 @@ namespace DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations
     /// <summary>
     /// Describes a relational orientation inside a three dimensional space.
     /// </summary>
-    public struct Orientation3D
+    public struct Orientation
     {
         /// <summary>
         /// Coordinates of the location.
@@ -27,9 +27,23 @@ namespace DDF.Core.ObjectModel.Graphs.Decisions.Patterns.Orientations
         /// </summary>
         public double Gamma { get; }
 
-        public Orientation3D(Vector3 point = default, double alpha = 0, double gamma=0)
+        public Orientation(Vector3 point = default, double alpha = 0, double gamma=0)
         {
             Point = point;
+            Alpha = alpha;
+            Gamma = gamma;
+        }
+
+        public Orientation(Vector2 point = default, double alpha = 0, double gamma = 0)
+        {
+            Point = new Vector3(point,0);
+            Alpha = alpha;
+            Gamma = gamma;
+        }
+
+        public Orientation(float x = 0, double alpha = 0, double gamma = 0)
+        {
+            Point = new Vector3(x,0, 0);
             Alpha = alpha;
             Gamma = gamma;
         }

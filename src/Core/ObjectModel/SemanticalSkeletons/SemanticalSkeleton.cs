@@ -13,7 +13,7 @@ namespace DDF.Core.ObjectModel.Graphs
     {
         public IEnumerable<Thing> Things;
         public IEnumerable<Relation> Relations;
-        public Dictionary<Thing, Orientation3D> Embedding;
+        public Dictionary<Thing, Orientation> Embedding;
        
     }
 }

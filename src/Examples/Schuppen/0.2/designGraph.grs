@@ -1,0 +1,10 @@
+new graph designGraph "DesignGraph"
+
+exec init && DesignDefaultRule* && SkinDefaultRule*
+
+dump set node DesignNode labels on
+dump add node DesignNode infotag o.p.x
+
+show graph dot
+
+#save graph schuppen.grs

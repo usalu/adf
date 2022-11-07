@@ -43,8 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RhinoGeometryBackend.cs" />
-    <Compile Include="EuclideanXYZSpace3D.cs" />
-    <Compile Include="LineCurve.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

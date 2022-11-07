@@ -20,7 +20,8 @@ namespace GrGenWrapper.Wrappers.RewriteSequences
 
         public override void ApplyOn(IGraphProcessingEnvironment graphProcessingEnvironment)
         {
-            graphProcessingEnvironment.ApplyGraphRewriteSequence(string.Join("&&", RuleNames.Select(x=>x+"*")));
+            string sequence = string.Join("&&", RuleNames.Select(x => x + "*"));
+            graphProcessingEnvironment.ApplyGraphRewriteSequence(sequence);
         }
     }
 }
